@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		14525298AEED70AA72C911CC /* Pods_ParkingSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEE68722D98D10C4A1F77A2B /* Pods_ParkingSystem.framework */; };
-		223FD55C21897B9800CE11B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 223FD55B21897B9800CE11B1 /* GoogleService-Info.plist */; };
+		223FD55E2189B1C700CE11B1 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FD55D2189B1C700CE11B1 /* Car.swift */; };
+		223FD5602189EF5300CE11B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 223FD55F2189EF5300CE11B1 /* GoogleService-Info.plist */; };
 		3B8A8BF721893A4600BCCD01 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8A8BF621893A4600BCCD01 /* RegisterViewController.swift */; };
 		3B8A8BF92189443F00BCCD01 /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8A8BF82189443F00BCCD01 /* PersonalInfoViewController.swift */; };
 		3B8A8BFB2189502F00BCCD01 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8A8BFA2189502F00BCCD01 /* TabBarController.swift */; };
@@ -24,7 +25,8 @@
 
 /* Begin PBXFileReference section */
 		118AA2695CDF8BAFD1A5D53A /* Pods-ParkingSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkingSystem.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParkingSystem/Pods-ParkingSystem.release.xcconfig"; sourceTree = "<group>"; };
-		223FD55B21897B9800CE11B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		223FD55D2189B1C700CE11B1 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		223FD55F2189EF5300CE11B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3B8A8BF621893A4600BCCD01 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3B8A8BF82189443F00BCCD01 /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
 		3B8A8BFA2189502F00BCCD01 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -97,13 +99,14 @@
 		3BBABBBF216637B50040B21B /* ParkingSystem */ = {
 			isa = PBXGroup;
 			children = (
-				223FD55B21897B9800CE11B1 /* GoogleService-Info.plist */,
+				223FD55F2189EF5300CE11B1 /* GoogleService-Info.plist */,
 				3B8A8BFE218960BE00BCCD01 /* ViewConrollers */,
 				3BBABBC0216637B50040B21B /* AppDelegate.swift */,
 				3BBABBC4216637B50040B21B /* Main.storyboard */,
 				3BBABBC7216637B70040B21B /* Assets.xcassets */,
 				3BBABBC9216637B70040B21B /* LaunchScreen.storyboard */,
 				3BBABBCC216637B70040B21B /* Info.plist */,
+				223FD55D2189B1C700CE11B1 /* Car.swift */,
 			);
 			path = ParkingSystem;
 			sourceTree = "<group>";
@@ -178,7 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BBABBCB216637B70040B21B /* LaunchScreen.storyboard in Resources */,
-				223FD55C21897B9800CE11B1 /* GoogleService-Info.plist in Resources */,
+				223FD5602189EF5300CE11B1 /* GoogleService-Info.plist in Resources */,
 				3BBABBC8216637B70040B21B /* Assets.xcassets in Resources */,
 				3BBABBC6216637B50040B21B /* Main.storyboard in Resources */,
 			);
@@ -241,6 +244,7 @@
 				3B8A8C002189618C00BCCD01 /* AvailableSpotViewController.swift in Sources */,
 				3B8A8BF721893A4600BCCD01 /* RegisterViewController.swift in Sources */,
 				3B9FE7DF2188FEED00405F37 /* AuthViewController.swift in Sources */,
+				223FD55E2189B1C700CE11B1 /* Car.swift in Sources */,
 				3B8A8BFB2189502F00BCCD01 /* TabBarController.swift in Sources */,
 				3B8A8BFD2189599500BCCD01 /* CarsTableViewController.swift in Sources */,
 				3BBABBC1216637B50040B21B /* AppDelegate.swift in Sources */,

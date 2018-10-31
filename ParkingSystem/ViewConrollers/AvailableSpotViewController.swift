@@ -26,7 +26,38 @@ class AvailableSpotViewController: UIViewController {
     
     let ref = Database.database().reference().child("park")
     
+    let ref2 = Database.database().reference().child("users")
+    var currentIndex = -1
+    let userId = Auth.auth().currentUser?.uid
+    var currentPlate = ""
+    
     override func viewDidAppear(_ animated: Bool) {
+        
+        
+        ref2.child(userId!).observe(.value, with: { snapshot in
+            let plates = snapshot.childSnapshot(forPath: "plates")
+            let data = snapshot.value as! [String: AnyObject]
+            self.currentIndex = data["current"] as! Int
+            if(self.currentIndex == -1){
+                self.currentPlate = ""
+            }
+            for child in plates.children {
+                if let snapshot = child as? DataSnapshot{
+                    let plate = snapshot.value as! String
+                    let index = snapshot.key
+                    if(Int(index) == self.currentIndex){
+                        self.currentPlate = plate
+                    }
+                }
+                
+            }
+            
+            
+        })
+        
+        
+        
+        
         let ref_plot_0 = ref.child("plot_0")
         let ref_plot_1 = ref.child("plot_1")
         let ref_plot_2 = ref.child("plot_2")
@@ -57,7 +88,9 @@ class AvailableSpotViewController: UIViewController {
                     self.spot1.isUserInteractionEnabled = true
                 case 1:
                     self.spot1.removeGestureRecognizer(orderGesture)
-                    self.spot1.addGestureRecognizer(cancelGesture)
+                    if(self.currentPlate == data["plate"] as! String){
+                        self.spot1.addGestureRecognizer(cancelGesture)
+                    }
                     self.spot1.setImageColor(color: UIColor.orange)
                     self.spot1.isUserInteractionEnabled = true
                 case 2:
@@ -86,7 +119,9 @@ class AvailableSpotViewController: UIViewController {
                 self.spot2.isUserInteractionEnabled = true
             case 1:
                 self.spot2.removeGestureRecognizer(orderGesture)
-                self.spot2.addGestureRecognizer(cancelGesture)
+                if(self.currentPlate == data["plate"] as! String){
+                    self.spot2.addGestureRecognizer(cancelGesture)
+                }
                 self.spot2.setImageColor(color: UIColor.orange)
                 self.spot2.isUserInteractionEnabled = true
             case 2:
@@ -114,7 +149,9 @@ class AvailableSpotViewController: UIViewController {
                 self.spot3.isUserInteractionEnabled = true
             case 1:
                 self.spot3.removeGestureRecognizer(orderGesture)
-                self.spot3.addGestureRecognizer(cancelGesture)
+                if(self.currentPlate == data["plate"] as! String){
+                    self.spot3.addGestureRecognizer(cancelGesture)
+                }
                 self.spot3.setImageColor(color: UIColor.orange)
                 self.spot3.isUserInteractionEnabled = true
             case 2:
@@ -142,7 +179,9 @@ class AvailableSpotViewController: UIViewController {
                 self.spot4.isUserInteractionEnabled = true
             case 1:
                 self.spot4.removeGestureRecognizer(orderGesture)
-                self.spot4.addGestureRecognizer(cancelGesture)
+                if(self.currentPlate == data["plate"] as! String){
+                    self.spot4.addGestureRecognizer(cancelGesture)
+                }
                 self.spot4.setImageColor(color: UIColor.orange)
                 self.spot4.isUserInteractionEnabled = true
             case 2:
@@ -192,7 +231,7 @@ class AvailableSpotViewController: UIViewController {
     }
     
     func orderSpot(identifier: String) {
-        ref.child("\(identifier)/plate").setValue("CURPLATE")
+        ref.child("\(identifier)/plate").setValue(self.currentPlate)
         ref.child("\(identifier)/state").setValue(1)
     }
     
