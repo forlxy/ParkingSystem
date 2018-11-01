@@ -173,7 +173,7 @@ class CarsTableViewController: UITableViewController, UIGestureRecognizerDelegat
         if(currentIndex == indexPath.row && latestTime != "")
         {
             var dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd MM yyyy HH mm ss"
+            dateFormatter.dateFormat = "yyyy MM dd HH mm ss"
             var dateFromString: Date? = dateFormatter.date(from: self.latestTime)
             
             var dateFormatter2 = DateFormatter()
