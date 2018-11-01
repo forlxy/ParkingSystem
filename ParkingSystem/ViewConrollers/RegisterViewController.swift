@@ -46,6 +46,8 @@ class RegisterViewController: UIViewController {
         ref.child("name").setValue(nameTextField.text)
         ref.child("address").setValue(addressTextField.text)
         ref.child("phone").setValue(phoneTextField.text)
+        ref.child("current").setValue(-1)
+        ref.child("balance").setValue(0)
         let alert = UIAlertController(title: "Success", message: "You have registered now.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (_) in
             self.performSegue(withIdentifier: "unwindToAuth", sender: self)
