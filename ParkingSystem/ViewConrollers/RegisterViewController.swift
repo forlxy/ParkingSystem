@@ -35,18 +35,16 @@ class RegisterViewController: UIViewController {
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if error != nil {
                 self.displayErrorMessage(error!.localizedDescription)
+            } else {
+                let userId = Auth.auth().currentUser?.uid
+                let ref = Database.database().reference().child("users").child(userId!)
+                ref.child("name").setValue(self.nameTextField.text)
+                ref.child("address").setValue(self.addressTextField.text)
+                ref.child("phone").setValue(self.phoneTextField.text)
+                ref.child("current").setValue(-1)
+                ref.child("balance").setValue(0)
             }
         }
-        
-        
-        
-        let userId = Auth.auth().currentUser?.uid
-        let ref = Database.database().reference().child("users").child(userId!)
-        ref.child("name").setValue(nameTextField.text)
-        ref.child("address").setValue(addressTextField.text)
-        ref.child("phone").setValue(phoneTextField.text)
-        ref.child("current").setValue(-1)
-        ref.child("balance").setValue(0)
         let alert = UIAlertController(title: "Success", message: "You have registered now.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (_) in
             self.performSegue(withIdentifier: "unwindToAuth", sender: self)
@@ -54,7 +52,6 @@ class RegisterViewController: UIViewController {
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
-    
     
     func displayErrorMessage(_ errorMessage: String) {
         let alertController = UIAlertController(title: "Error", message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
