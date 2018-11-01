@@ -15,6 +15,8 @@ class CarsTableViewController: UITableViewController, UIGestureRecognizerDelegat
     var currentIndex = -1
     let userId = Auth.auth().currentUser?.uid
     var latestTime = ""
+    var timer = Timer()
+    var isRunning = false
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,13 +29,13 @@ class CarsTableViewController: UITableViewController, UIGestureRecognizerDelegat
             self.cars.removeAll()
             let plates = snapshot.childSnapshot(forPath: "plates")
             let data = snapshot.value as! [String: AnyObject]
-            self.currentIndex = data["current"] as! Int
+            self.currentIndex = data["current"] == nil ? -1 : data["current"] as! Int
             for child in plates.children {
                 if let snapshot = child as? DataSnapshot{
                     let plate = snapshot.value as! String
                     let index = snapshot.key
 //                    let plate = data[index] as! String
-                    let newCar = Car(isInside: false, plate: plate, timer: Timer())
+                    let newCar = Car(isInside: false, plate: plate, time: Date())
                     self.cars.append(newCar)
                 }
                 
@@ -166,6 +168,36 @@ class CarsTableViewController: UITableViewController, UIGestureRecognizerDelegat
 //        return UISwipeActionsConfiguration(actions: [modifyAction])
 //    }
     
+    func runTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(CarsTableViewController.updateTimer)), userInfo: nil, repeats: true)
+        isRunning = true
+    }
+    
+    func stopTimer() {
+        timer.invalidate()
+        isRunning = false
+    }
+    
+    func stringFromTimeInterval(interval: TimeInterval) -> String {
+        
+        let ti = NSInteger(interval)
+        
+        let seconds = ti % 60
+        let minutes = (ti / 60) % 60
+        let hours = (ti / 3600)
+        
+        return String(format: "%0.2d:%0.2d:%0.2d",hours,minutes,seconds)
+    }
+    
+    @objc func updateTimer() {
+        let interval = Date().timeIntervalSince(self.cars[currentIndex].time)
+        
+        self.cars[currentIndex].labelText = stringFromTimeInterval(interval: interval) //This will update the label.
+        tableView.reloadData()
+        
+    }
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CarCell", for: indexPath)
 
@@ -181,19 +213,30 @@ class CarsTableViewController: UITableViewController, UIGestureRecognizerDelegat
             stringDate = dateFormatter2.string(from: dateFromString!)
             
             self.cars[currentIndex].isInside = true
+            
+            self.cars[currentIndex].time = dateFromString!
         }
         // Configure the cell...
 
+        if(currentIndex == -1 && isRunning == true){
+            stopTimer()
+        }
+        else if(currentIndex != -1 && isRunning == false){
+            runTimer()
+        }
+        
+        
         let car = cars[indexPath.row]
-        
-//        let text = "Temperature: " + String(format:"%f", record.thermometer!) + " RGB: " + String(record.red!) + " ," + String(record.green!) + " ," + String(record.blue!)
-        
-        
         
         cell.textLabel?.text = car.plate
         
-        cell.detailTextLabel?.text = (car.isInside ? "Current Inside. From: " : "") + stringDate
-        cell.detailTextLabel?.textColor = UIColor.orange
+        if(currentIndex == indexPath.row && latestTime != "") {
+            cell.detailTextLabel?.text = (car.isInside ? "Current Inside. Lasting: " : "") + self.cars[currentIndex].labelText
+            cell.detailTextLabel?.textColor = UIColor.orange
+        }
+        else {
+            cell.detailTextLabel?.text = ""
+        }
         return cell
     }
     

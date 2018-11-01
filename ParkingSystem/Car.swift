@@ -11,12 +11,13 @@ import UIKit
 class Car: NSObject {
     var isInside: Bool
     var plate: String = ""
-    var timer: Timer
+    var time: Date
+    var labelText: String = ""
     
-    init(isInside: Bool, plate: String, timer: Timer) {
+    init(isInside: Bool, plate: String, time: Date) {
         self.isInside = isInside
         self.plate = plate
-        self.timer = timer
+        self.time = time
     }
     
 }

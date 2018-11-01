@@ -37,7 +37,7 @@ class AvailableSpotViewController: UIViewController {
         ref2.child(userId!).observe(.value, with: { snapshot in
             let plates = snapshot.childSnapshot(forPath: "plates")
             let data = snapshot.value as! [String: AnyObject]
-            self.currentIndex = data["current"] as! Int
+            self.currentIndex = data["current"] == nil ? -1 : data["current"] as! Int
             if(self.currentIndex == -1){
                 self.currentPlate = ""
             }
