@@ -9,16 +9,18 @@
 import UIKit
 import Firebase
 
-//class Colors {
-//    var gl:CAGradientLayer!
-//    init() {
-//        let colorTop = UIColor(red: 192.0/255.0, green: 38.0/255.0, blue: 42.0/255.0, alpha: 1.0)
-//        let colorBottom = UIColor(red: 35.0/255.0, green: 2.0/255.0, blue: 2.0/255.0, alpha: 1.0)
-//        self.gl = CAGradientLayer()
-//        self.gl.colors = [colorTop, colorBottom]
-//        self.gl.locations = [0.0, 1.0]
-//    }
-//}
+extension UIView {
+    func setGradientBackground(colorOne: UIColor, colorTwo: UIColor) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.colors = [colorOne.cgColor, colorTwo.cgColor]
+        gradientLayer.locations = [0.0, 1.0]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 1.0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.0)
+        layer.insertSublayer(gradientLayer, at: 0)
+    }
+}
+
 
 class RegisterViewController: UIViewController {
 
@@ -32,11 +34,7 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-//        let colors = Colors()
-//        view.backgroundColor = UIColor.clear
-//        var backgroundLayer = colors.gl
-//        backgroundLayer.frame = view.frame
-//        view.layer.insertSublayer(backgroundLayer, at: 0)
+        view.setGradientBackground(colorOne: UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0), colorTwo: UIColor(red: 200.0/255.0, green: 200.0/255.0, blue: 200.0/255.0, alpha: 1.0))
         
     }
     
