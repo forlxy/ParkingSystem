@@ -1,0 +1,452 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		14525298AEED70AA72C911CC /* Pods_ParkingSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEE68722D98D10C4A1F77A2B /* Pods_ParkingSystem.framework */; };
+		223FD55E2189B1C700CE11B1 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FD55D2189B1C700CE11B1 /* Car.swift */; };
+		223FD5602189EF5300CE11B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 223FD55F2189EF5300CE11B1 /* GoogleService-Info.plist */; };
+		3B8A8BF721893A4600BCCD01 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8A8BF621893A4600BCCD01 /* RegisterViewController.swift */; };
+		3B8A8BF92189443F00BCCD01 /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8A8BF82189443F00BCCD01 /* PersonalInfoViewController.swift */; };
+		3B8A8BFB2189502F00BCCD01 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8A8BFA2189502F00BCCD01 /* TabBarController.swift */; };
+		3B8A8BFD2189599500BCCD01 /* CarsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8A8BFC2189599500BCCD01 /* CarsTableViewController.swift */; };
+		3B8A8C002189618C00BCCD01 /* AvailableSpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8A8BFF2189618C00BCCD01 /* AvailableSpotViewController.swift */; };
+		3B8A8C022189690E00BCCD01 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8A8C012189690E00BCCD01 /* EditProfileViewController.swift */; };
+		3B9FE7DF2188FEED00405F37 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9FE7DE2188FEED00405F37 /* AuthViewController.swift */; };
+		3BBABBC1216637B50040B21B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBABBC0216637B50040B21B /* AppDelegate.swift */; };
+		3BBABBC6216637B50040B21B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BBABBC4216637B50040B21B /* Main.storyboard */; };
+		3BBABBC8216637B70040B21B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BBABBC7216637B70040B21B /* Assets.xcassets */; };
+		3BBABBCB216637B70040B21B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BBABBC9216637B70040B21B /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		118AA2695CDF8BAFD1A5D53A /* Pods-ParkingSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkingSystem.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParkingSystem/Pods-ParkingSystem.release.xcconfig"; sourceTree = "<group>"; };
+		223FD55D2189B1C700CE11B1 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		223FD55F2189EF5300CE11B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3B8A8BF621893A4600BCCD01 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		3B8A8BF82189443F00BCCD01 /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
+		3B8A8BFA2189502F00BCCD01 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		3B8A8BFC2189599500BCCD01 /* CarsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsTableViewController.swift; sourceTree = "<group>"; };
+		3B8A8BFF2189618C00BCCD01 /* AvailableSpotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableSpotViewController.swift; sourceTree = "<group>"; };
+		3B8A8C012189690E00BCCD01 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		3B9FE7DE2188FEED00405F37 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		3BBABBBD216637B50040B21B /* ParkingSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkingSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BBABBC0216637B50040B21B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3BBABBC5216637B50040B21B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3BBABBC7216637B70040B21B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3BBABBCA216637B70040B21B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3BBABBCC216637B70040B21B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B50802B50E40C8CC1438E10C /* Pods-ParkingSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkingSystem.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParkingSystem/Pods-ParkingSystem.debug.xcconfig"; sourceTree = "<group>"; };
+		BEE68722D98D10C4A1F77A2B /* Pods_ParkingSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParkingSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3BBABBBA216637B50040B21B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14525298AEED70AA72C911CC /* Pods_ParkingSystem.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		295EF736B12192ECFBC0FB6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BEE68722D98D10C4A1F77A2B /* Pods_ParkingSystem.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3B8A8BFE218960BE00BCCD01 /* ViewConrollers */ = {
+			isa = PBXGroup;
+			children = (
+				3B9FE7DE2188FEED00405F37 /* AuthViewController.swift */,
+				3B8A8BF621893A4600BCCD01 /* RegisterViewController.swift */,
+				3B8A8BFA2189502F00BCCD01 /* TabBarController.swift */,
+				3B8A8BFC2189599500BCCD01 /* CarsTableViewController.swift */,
+				3B8A8BF82189443F00BCCD01 /* PersonalInfoViewController.swift */,
+				3B8A8BFF2189618C00BCCD01 /* AvailableSpotViewController.swift */,
+				3B8A8C012189690E00BCCD01 /* EditProfileViewController.swift */,
+			);
+			path = ViewConrollers;
+			sourceTree = "<group>";
+		};
+		3BBABBB4216637B50040B21B = {
+			isa = PBXGroup;
+			children = (
+				3BBABBBF216637B50040B21B /* ParkingSystem */,
+				3BBABBBE216637B50040B21B /* Products */,
+				9D06608948680BA52A1C2E6D /* Pods */,
+				295EF736B12192ECFBC0FB6D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3BBABBBE216637B50040B21B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3BBABBBD216637B50040B21B /* ParkingSystem.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3BBABBBF216637B50040B21B /* ParkingSystem */ = {
+			isa = PBXGroup;
+			children = (
+				223FD55F2189EF5300CE11B1 /* GoogleService-Info.plist */,
+				3B8A8BFE218960BE00BCCD01 /* ViewConrollers */,
+				3BBABBC0216637B50040B21B /* AppDelegate.swift */,
+				3BBABBC4216637B50040B21B /* Main.storyboard */,
+				3BBABBC7216637B70040B21B /* Assets.xcassets */,
+				3BBABBC9216637B70040B21B /* LaunchScreen.storyboard */,
+				3BBABBCC216637B70040B21B /* Info.plist */,
+				223FD55D2189B1C700CE11B1 /* Car.swift */,
+			);
+			path = ParkingSystem;
+			sourceTree = "<group>";
+		};
+		9D06608948680BA52A1C2E6D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B50802B50E40C8CC1438E10C /* Pods-ParkingSystem.debug.xcconfig */,
+				118AA2695CDF8BAFD1A5D53A /* Pods-ParkingSystem.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3BBABBBC216637B50040B21B /* ParkingSystem */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BBABBCF216637B70040B21B /* Build configuration list for PBXNativeTarget "ParkingSystem" */;
+			buildPhases = (
+				ADC8540BCC0241C46098B197 /* [CP] Check Pods Manifest.lock */,
+				3BBABBB9216637B50040B21B /* Sources */,
+				3BBABBBA216637B50040B21B /* Frameworks */,
+				3BBABBBB216637B50040B21B /* Resources */,
+				2A3E0C81CC15A818DB7B90CD /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ParkingSystem;
+			productName = ParkingSystem;
+			productReference = 3BBABBBD216637B50040B21B /* ParkingSystem.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3BBABBB5216637B50040B21B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = Yilei.Pan;
+				TargetAttributes = {
+					3BBABBBC216637B50040B21B = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 3BBABBB8216637B50040B21B /* Build configuration list for PBXProject "ParkingSystem" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3BBABBB4216637B50040B21B;
+			productRefGroup = 3BBABBBE216637B50040B21B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3BBABBBC216637B50040B21B /* ParkingSystem */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3BBABBBB216637B50040B21B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BBABBCB216637B70040B21B /* LaunchScreen.storyboard in Resources */,
+				223FD5602189EF5300CE11B1 /* GoogleService-Info.plist in Resources */,
+				3BBABBC8216637B70040B21B /* Assets.xcassets in Resources */,
+				3BBABBC6216637B50040B21B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2A3E0C81CC15A818DB7B90CD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ParkingSystem/Pods-ParkingSystem-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ParkingSystem/Pods-ParkingSystem-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ADC8540BCC0241C46098B197 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ParkingSystem-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3BBABBB9216637B50040B21B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B8A8C022189690E00BCCD01 /* EditProfileViewController.swift in Sources */,
+				3B8A8BF92189443F00BCCD01 /* PersonalInfoViewController.swift in Sources */,
+				3B8A8C002189618C00BCCD01 /* AvailableSpotViewController.swift in Sources */,
+				3B8A8BF721893A4600BCCD01 /* RegisterViewController.swift in Sources */,
+				3B9FE7DF2188FEED00405F37 /* AuthViewController.swift in Sources */,
+				223FD55E2189B1C700CE11B1 /* Car.swift in Sources */,
+				3B8A8BFB2189502F00BCCD01 /* TabBarController.swift in Sources */,
+				3B8A8BFD2189599500BCCD01 /* CarsTableViewController.swift in Sources */,
+				3BBABBC1216637B50040B21B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3BBABBC4216637B50040B21B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3BBABBC5216637B50040B21B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3BBABBC9216637B70040B21B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3BBABBCA216637B70040B21B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3BBABBCD216637B70040B21B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3BBABBCE216637B70040B21B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3BBABBD0216637B70040B21B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B50802B50E40C8CC1438E10C /* Pods-ParkingSystem.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2SP27K4XUQ;
+				INFOPLIST_FILE = ParkingSystem/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fit5140.assignment3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3BBABBD1216637B70040B21B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 118AA2695CDF8BAFD1A5D53A /* Pods-ParkingSystem.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2SP27K4XUQ;
+				INFOPLIST_FILE = ParkingSystem/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fit5140.assignment3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3BBABBB8216637B50040B21B /* Build configuration list for PBXProject "ParkingSystem" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BBABBCD216637B70040B21B /* Debug */,
+				3BBABBCE216637B70040B21B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BBABBCF216637B70040B21B /* Build configuration list for PBXNativeTarget "ParkingSystem" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BBABBD0216637B70040B21B /* Debug */,
+				3BBABBD1216637B70040B21B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3BBABBB5216637B50040B21B /* Project object */;
+}
