@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class EditProfileViewController: UIViewController {
 
@@ -15,7 +16,17 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var phoneTextField: UITextField!
     
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let userId = Auth.auth().currentUser?.uid
+        let ref = Database.database().reference().child("users").child(userId!)
+        ref.observeSingleEvent(of: .value, with: { snapshot in
+            let data = snapshot.value as! [String: AnyObject]
+            self.nameTextField.text = data["name"] as? String
+            self.addressTextField.text = data["address"] as? String
+            self.phoneTextField.text = data["phone"] as? String
+        })
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +36,11 @@ class EditProfileViewController: UIViewController {
     
     @IBAction func saveChange(_ sender: Any) {
         // update the firebase
-        
-        
+        let userId = Auth.auth().currentUser?.uid
+        let ref = Database.database().reference().child("users").child(userId!)
+        ref.child("name").setValue(nameTextField.text)
+        ref.child("address").setValue(addressTextField.text)
+        ref.child("phone").setValue(phoneTextField.text)
         let alert = UIAlertController(title: "Success", message: "You have changed your profile.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (_) in
             self.performSegue(withIdentifier: "unwindToInfo", sender: self)

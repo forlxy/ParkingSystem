@@ -13,6 +13,10 @@ class RegisterViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var addressTextField: UITextField!
+    @IBOutlet weak var phoneTextField: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +38,14 @@ class RegisterViewController: UIViewController {
                 self.displayErrorMessage(error!.localizedDescription)
             }
         }
+        
+        
+        
+        let userId = Auth.auth().currentUser?.uid
+        let ref = Database.database().reference().child("users").child(userId!)
+        ref.child("name").setValue(nameTextField.text)
+        ref.child("address").setValue(addressTextField.text)
+        ref.child("phone").setValue(phoneTextField.text)
         let alert = UIAlertController(title: "Success", message: "You have registered now.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (_) in
             self.performSegue(withIdentifier: "unwindToAuth", sender: self)
