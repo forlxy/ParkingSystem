@@ -88,10 +88,11 @@ class AvailableSpotViewController: UIViewController {
                     self.spot1.isUserInteractionEnabled = true
                 case 1:
                     self.spot1.removeGestureRecognizer(orderGesture)
+                    self.spot1.setImageColor(color: UIColor.red)
                     if(self.currentPlate == data["plate"] as! String){
                         self.spot1.addGestureRecognizer(cancelGesture)
+                        self.spot1.setImageColor(color: UIColor.orange)
                     }
-                    self.spot1.setImageColor(color: UIColor.orange)
                     self.spot1.isUserInteractionEnabled = true
                 case 2:
                     self.spot1.setImageColor(color: UIColor.red)
@@ -119,10 +120,11 @@ class AvailableSpotViewController: UIViewController {
                 self.spot2.isUserInteractionEnabled = true
             case 1:
                 self.spot2.removeGestureRecognizer(orderGesture)
+                self.spot2.setImageColor(color: UIColor.red)
                 if(self.currentPlate == data["plate"] as! String){
                     self.spot2.addGestureRecognizer(cancelGesture)
+                    self.spot2.setImageColor(color: UIColor.orange)
                 }
-                self.spot2.setImageColor(color: UIColor.orange)
                 self.spot2.isUserInteractionEnabled = true
             case 2:
                 self.spot2.setImageColor(color: UIColor.red)
@@ -149,10 +151,11 @@ class AvailableSpotViewController: UIViewController {
                 self.spot3.isUserInteractionEnabled = true
             case 1:
                 self.spot3.removeGestureRecognizer(orderGesture)
+                self.spot3.setImageColor(color: UIColor.red)
                 if(self.currentPlate == data["plate"] as! String){
                     self.spot3.addGestureRecognizer(cancelGesture)
+                    self.spot3.setImageColor(color: UIColor.orange)
                 }
-                self.spot3.setImageColor(color: UIColor.orange)
                 self.spot3.isUserInteractionEnabled = true
             case 2:
                 self.spot3.setImageColor(color: UIColor.red)
@@ -179,10 +182,11 @@ class AvailableSpotViewController: UIViewController {
                 self.spot4.isUserInteractionEnabled = true
             case 1:
                 self.spot4.removeGestureRecognizer(orderGesture)
+                self.spot4.setImageColor(color: UIColor.red)
                 if(self.currentPlate == data["plate"] as! String){
                     self.spot4.addGestureRecognizer(cancelGesture)
+                    self.spot4.setImageColor(color: UIColor.orange)
                 }
-                self.spot4.setImageColor(color: UIColor.orange)
                 self.spot4.isUserInteractionEnabled = true
             case 2:
                 self.spot4.setImageColor(color: UIColor.red)
