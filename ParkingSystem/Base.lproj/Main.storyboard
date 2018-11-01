@@ -455,6 +455,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add New Car"/>
                             </button>
+                            <connections>
+                                <action selector="addCar:" destination="tVv-0Y-s0u" id="eQq-s1-mdF"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>

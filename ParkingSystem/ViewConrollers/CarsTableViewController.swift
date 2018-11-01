@@ -17,6 +17,25 @@ class CarsTableViewController: UITableViewController, UIGestureRecognizerDelegat
     var latestTime = ""
     var timer = Timer()
     var isRunning = false
+    @IBAction func addCar(_ sender: Any) {
+        let alert = UIAlertController(title: "Add Car", message: "Enter a text", preferredStyle: .alert)
+        
+        alert.addTextField { (textField) in
+            textField.accessibilityHint = "Please input your car plate"
+        }
+        
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+            let plate = textField?.text
+            print("Text field: \(textField?.text)")
+            let newCar = Car(isInside: false, plate: plate!, time: Date())
+            self.cars.append(newCar)
+        }))
+        
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
