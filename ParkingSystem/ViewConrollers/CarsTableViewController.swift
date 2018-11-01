@@ -17,25 +17,42 @@ class CarsTableViewController: UITableViewController, UIGestureRecognizerDelegat
     var latestTime = ""
     var timer = Timer()
     var isRunning = false
-    @IBAction func addCar(_ sender: Any) {
-        let alert = UIAlertController(title: "Add Car", message: "Enter a text", preferredStyle: .alert)
+    
+    @IBAction func addNew(_ sender: Any) {
+        let alert = UIAlertController(title: "Add Car", message: "Please input your car plate", preferredStyle: .alert)
         
         alert.addTextField { (textField) in
             textField.accessibilityHint = "Please input your car plate"
         }
         
         // 3. Grab the value from the text field, and print it when the user clicks OK.
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
             let plate = textField?.text
-            print("Text field: \(textField?.text)")
-            let newCar = Car(isInside: false, plate: plate!, time: Date())
-            self.cars.append(newCar)
+            if(plate != ""){
+                let newCar = Car(isInside: false, plate: plate!, time: Date())
+                self.cars.append(newCar)
+                self.updateCars()
+            }
         }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         // 4. Present the alert.
         self.present(alert, animated: true, completion: nil)
     }
+    
+    
+    func updateCars() {
+        for car in cars {
+            let index = cars.index(of: car) as! Int
+             ref.child(userId!).child("plates").child(String(index)).setValue(car.plate)
+        }
+        
+        ref.child(userId!).child("current").setValue(-1)
+        self.currentIndex = -1
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,12 +79,14 @@ class CarsTableViewController: UITableViewController, UIGestureRecognizerDelegat
             
             
             //Update current "in" car of this user
-            for (index, car) in self.cars.enumerated()	{
+            for (index, car) in self.cars.enumerated()    {
                 let query = Database.database().reference().child("plate").child(car.plate).queryOrderedByKey().queryLimited(toLast: 1)
                 var preAction = "out"
                 var currentAction = "out"
                 query.observe(.value, with:{ snapshot in
+                    
                     for snap in snapshot.children {
+                        
                         if let first = snap as? DataSnapshot{
                             for snapshoot in first.children {
                                 if let final = snapshoot as? DataSnapshot{
@@ -128,12 +147,12 @@ class CarsTableViewController: UITableViewController, UIGestureRecognizerDelegat
             
             let alert = UIAlertController(title: "You sure delete this car?", message: "", preferredStyle: .alert)
             
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { action in
                 self.ref.child(self.userId!).child("plates").child(String(indexPath.row)).removeValue()
                 self.cars.remove(at: indexPath.row)
                 tableView.reloadData()
             }))
-            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             
             self.present(alert, animated: true)
             
@@ -211,9 +230,14 @@ class CarsTableViewController: UITableViewController, UIGestureRecognizerDelegat
     @objc func updateTimer() {
         let interval = Date().timeIntervalSince(self.cars[currentIndex].time)
         
+        let indexPath = IndexPath(row: currentIndex, section: 0)
         self.cars[currentIndex].labelText = stringFromTimeInterval(interval: interval) //This will update the label.
-        tableView.reloadData()
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CarCell", for: indexPath)
+
+        cell.detailTextLabel?.text = (self.cars[currentIndex].isInside ? "Current Inside. Lasting: " : "") + self.cars[currentIndex].labelText
+        cell.detailTextLabel?.textColor = UIColor.orange
+        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
     }
     
     
@@ -259,6 +283,30 @@ class CarsTableViewController: UITableViewController, UIGestureRecognizerDelegat
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let alert = UIAlertController(title: "Change Car Plate", message: "Please input your car plate", preferredStyle: .alert)
+        
+        alert.addTextField { (textField) in
+            textField.accessibilityHint = "Please input your car plate"
+            textField.text = self.cars[indexPath.row].plate
+        }
+        
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+            let plate = textField?.text
+            if(plate != ""){
+                self.cars[indexPath.row].plate = plate!
+                self.updateCars()
+            }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+    }
 
     /*
     // Override to support conditional editing of the table view.

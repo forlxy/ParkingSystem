@@ -454,9 +454,12 @@
                                 <rect key="frame" x="302" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add New Car"/>
+                                <connections>
+                                    <action selector="addNew:" destination="tVv-0Y-s0u" eventType="touchUpInside" id="yi4-f0-7L5"/>
+                                </connections>
                             </button>
                             <connections>
-                                <action selector="addCar:" destination="tVv-0Y-s0u" id="eQq-s1-mdF"/>
+                                <action selector="addNew:" destination="tVv-0Y-s0u" id="oWT-y3-HYT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
