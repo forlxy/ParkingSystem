@@ -14,7 +14,9 @@ class AuthViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     var handle: AuthStateDidChangeListenerHandle?
-
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
@@ -33,6 +35,15 @@ class AuthViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bg-parking.png")!).withAlphaComponent(0.7)
+        loginButton.backgroundColor = UIColor.gray.withAlphaComponent(0.8)
+        loginButton.layer.cornerRadius = 5
+        loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = UIColor.gray.withAlphaComponent(0.8).cgColor
+        registerButton.backgroundColor = UIColor.gray.withAlphaComponent(0.8)
+        registerButton.layer.cornerRadius = 5
+        registerButton.layer.borderWidth = 1
+        registerButton.layer.borderColor = UIColor.gray.withAlphaComponent(0.8).cgColor
     }
     
     @IBAction func loginAccount(_ sender: Any) {

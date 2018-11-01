@@ -9,6 +9,17 @@
 import UIKit
 import Firebase
 
+//class Colors {
+//    var gl:CAGradientLayer!
+//    init() {
+//        let colorTop = UIColor(red: 192.0/255.0, green: 38.0/255.0, blue: 42.0/255.0, alpha: 1.0)
+//        let colorBottom = UIColor(red: 35.0/255.0, green: 2.0/255.0, blue: 2.0/255.0, alpha: 1.0)
+//        self.gl = CAGradientLayer()
+//        self.gl.colors = [colorTop, colorBottom]
+//        self.gl.locations = [0.0, 1.0]
+//    }
+//}
+
 class RegisterViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
@@ -21,6 +32,12 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+//        let colors = Colors()
+//        view.backgroundColor = UIColor.clear
+//        var backgroundLayer = colors.gl
+//        backgroundLayer.frame = view.frame
+//        view.layer.insertSublayer(backgroundLayer, at: 0)
+        
     }
     
     @IBAction func registerAccount(_ sender: Any) {
