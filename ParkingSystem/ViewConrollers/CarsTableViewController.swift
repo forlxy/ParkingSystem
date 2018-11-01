@@ -9,194 +9,46 @@
 import UIKit
 import Firebase
 
-class CarsTableViewController: UITableViewController, UIGestureRecognizerDelegate{
-    var cars: [Car] = []
-    let ref = Database.database().reference().child("users")
-    var currentIndex = -1
-    let userId = Auth.auth().currentUser?.uid
-    var latestTime = ""
+class CarsTableViewController: UITableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let longPressGesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(CarsTableViewController.longPress(_:)))
-        longPressGesture.minimumPressDuration = 1.0 // 1 second press
-        longPressGesture.delegate = self
-        self.tableView.addGestureRecognizer(longPressGesture)
-        
-        ref.child(userId!).observe(.value, with: { snapshot in
-            self.cars.removeAll()
-            let plates = snapshot.childSnapshot(forPath: "plates")
-            let data = snapshot.value as! [String: AnyObject]
-            self.currentIndex = data["current"] as! Int
-            for child in plates.children {
-                if let snapshot = child as? DataSnapshot{
-                    let plate = snapshot.value as! String
-                    let index = snapshot.key
-//                    let plate = data[index] as! String
-                    let newCar = Car(isInside: false, plate: plate, timer: Timer())
-                    self.cars.append(newCar)
-                }
-                
-            }
-            
-            
-            //Update current "in" car of this user
-            for (index, car) in self.cars.enumerated()	{
-                let query = Database.database().reference().child("plate").child(car.plate).queryOrderedByKey().queryLimited(toLast: 1)
-                var preAction = "out"
-                var currentAction = "out"
-                query.observe(.value, with:{ snapshot in
-                    for snap in snapshot.children {
-                        if let first = snap as? DataSnapshot{
-                            for snapshoot in first.children {
-                                if let final = snapshoot as? DataSnapshot{
-                                    let data = final.value as! [String: AnyObject]
-                                    let action = data["action"] as! String
-                                    if(action == "in") {
-                                        preAction = currentAction
-                                        currentAction = action
-                                        self.currentIndex = index
-                                        self.latestTime = data["time"] as! String
-                                    }
-                                    else if(action == "out"){
-                                        preAction = currentAction
-                                        currentAction = action
-                                        self.currentIndex = -1
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if(preAction != currentAction){
-                        self.ref.child(self.userId!).child("current").setValue(self.currentIndex)
-                    }
-                    
-                    self.tableView.reloadData()
-                })
-            }
-            
-            
-            
-            self.tableView.reloadData()
-        })
-        
-        
-        
-        
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return cars.count
+        return 0
     }
     
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+    @IBAction func logout(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+        } catch {}
+        dismiss(animated: true, completion: nil)
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == .delete) {
-            // handle delete (by removing the data from your array and updating the tableview)
-            
-            let alert = UIAlertController(title: "You sure delete this car?", message: "", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-                self.ref.child(self.userId!).child("plates").child(String(indexPath.row)).removeValue()
-                self.cars.remove(at: indexPath.row)
-                tableView.reloadData()
-            }))
-            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-            
-            self.present(alert, animated: true)
-            
-        }
-        
-    }
-    
-    @objc func longPress(_ longPressGestureRecognizer: UILongPressGestureRecognizer) {
-        
-        if longPressGestureRecognizer.state == UIGestureRecognizerState.began {
-            
-//            let touchPoint = longPressGestureRecognizer.location(in: self.tableView)
-//            if let indexPath = tableView.indexPathForRow(at: touchPoint) {
-//                let alert = UIAlertController(title: "Set this one as Default plate?", message: "", preferredStyle: .alert)
-//
-//                alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-//                    self.ref.child(self.userId!).child("default").setValue(indexPath.row)
-//                }))
-//                alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-//
-//                self.present(alert, animated: true)
-//            }
-        }
-    }
-    
-//    
-//    override func tableView(_ tableView: UITableView,
-//                   leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
-//    {
-//        let closeAction = UIContextualAction(style: .normal, title:  "Close", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-//            print("OK, marked as Closed")
-//            success(true)
-//        })
-//        closeAction.image = UIImage(named: "tick")
-//        closeAction.backgroundColor = .purple
-//        
-//        return UISwipeActionsConfiguration(actions: [closeAction])
-//        
-//    }
-//    
-//    override func tableView(_ tableView: UITableView,
-//                   trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
-//    {
-//        let modifyAction = UIContextualAction(style: .normal, title:  "Update", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-//            print("Update action ...")
-//            success(true)
-//        })
-//        modifyAction.image = UIImage(named: "hammer")
-//        modifyAction.backgroundColor = .blue
-//        
-//        return UISwipeActionsConfiguration(actions: [modifyAction])
-//    }
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CarCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        var stringDate = ""
-        if(currentIndex == indexPath.row && latestTime != "")
-        {
-            var dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd MM yyyy HH mm ss"
-            var dateFromString: Date? = dateFormatter.date(from: self.latestTime)
-            
-            var dateFormatter2 = DateFormatter()
-            dateFormatter2.dateFormat = "dd/MM/yyyy HH:mm:ss"
-            stringDate = dateFormatter2.string(from: dateFromString!)
-            
-            self.cars[currentIndex].isInside = true
-        }
         // Configure the cell...
 
-        let car = cars[indexPath.row]
-        
-//        let text = "Temperature: " + String(format:"%f", record.thermometer!) + " RGB: " + String(record.red!) + " ," + String(record.green!) + " ," + String(record.blue!)
-        
-        
-        
-        cell.textLabel?.text = car.plate
-        
-        cell.detailTextLabel?.text = (car.isInside ? "Current Inside. From: " : "") + stringDate
-        cell.detailTextLabel?.textColor = UIColor.orange
         return cell
     }
-    
+    */
 
     /*
     // Override to support conditional editing of the table view.
