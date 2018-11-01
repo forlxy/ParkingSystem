@@ -11,6 +11,22 @@ import Firebase
 
 class PersonalInfoViewController: UIViewController {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let userId = Auth.auth().currentUser?.uid
+        let ref = Database.database().reference().child("users").child(userId!)
+        ref.observe(.value, with: { snapshot in
+            let data = snapshot.value as! [String: AnyObject]
+            self.nameLabel.text = data["name"] as? String
+            self.addressLabel.text = data["address"] as? String
+            self.phoneLabel.text = data["phone"] as? String
+        })
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
