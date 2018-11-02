@@ -38,7 +38,7 @@ class EditProfileViewController: UIViewController {
     }
     
     @IBAction func saveChange(_ sender: Any) {
-        if (Validator().name(input: nameTextField.text!) && Validator().address(input: addressTextField.text!) && Validator().phone(input: phoneTextField.text!)) {
+        if (Validator.name(input: nameTextField.text!) && Validator.address(input: addressTextField.text!) && Validator.phone(input: phoneTextField.text!)) {
             let userId = Auth.auth().currentUser?.uid
             let ref = Database.database().reference().child("users").child(userId!)
             ref.child("name").setValue(nameTextField.text)
@@ -58,7 +58,7 @@ class EditProfileViewController: UIViewController {
     @objc func nameTextFieldDidChange(_ textField: UITextField) {
         if let text = textField.text {
             if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
-                if (Validator().name(input: text) == false) {
+                if (Validator.name(input: text) == false) {
                     floatingLabelTextField.errorMessage = "Name must not contain any special characters"
                 } else {
                     floatingLabelTextField.errorMessage = ""
@@ -70,7 +70,7 @@ class EditProfileViewController: UIViewController {
     @objc func phoneTextFieldDidChange(_ textField: UITextField) {
         if let text = textField.text {
             if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
-                if (Validator().phone(input: text) == false) {
+                if (Validator.phone(input: text) == false) {
                     floatingLabelTextField.errorMessage = "Invalid phone"
                 } else {
                     floatingLabelTextField.errorMessage = ""
@@ -82,7 +82,7 @@ class EditProfileViewController: UIViewController {
     @objc func addressTextFieldDidChange(_ textField: UITextField) {
         if let text = textField.text {
             if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
-                if (Validator().address(input: text) == false) {
+                if (Validator.address(input: text) == false) {
                     floatingLabelTextField.errorMessage = "Invalid address"
                 } else {
                     floatingLabelTextField.errorMessage = ""

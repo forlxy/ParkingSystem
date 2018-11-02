@@ -102,7 +102,7 @@ class RegisterViewController: UIViewController {
     @objc func emailTextFieldDidChange(_ textField: UITextField) {
         if let text = textField.text {
             if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
-                if (Validator().email(input: text) == false) {
+                if (Validator.email(input: text) == false) {
                     floatingLabelTextField.errorMessage = "Invalid email"
                 } else {
                     floatingLabelTextField.errorMessage = ""
@@ -114,7 +114,7 @@ class RegisterViewController: UIViewController {
     @objc func passwordTextFieldDidChange(_ textField: UITextField) {
         if let text = textField.text {
             if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
-                if (Validator().password(input: text) == false) {
+                if (Validator.password(input: text) == false) {
                     floatingLabelTextField.errorMessage = "Invalid password"
                 } else {
                     floatingLabelTextField.errorMessage = ""
@@ -126,7 +126,7 @@ class RegisterViewController: UIViewController {
     @objc func phoneTextFieldDidChange(_ textField: UITextField) {
         if let text = textField.text {
             if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
-                if (Validator().phone(input: text) == false) {
+                if (Validator.phone(input: text) == false) {
                     floatingLabelTextField.errorMessage = "Invalid phone number"
                 } else {
                     floatingLabelTextField.errorMessage = ""
@@ -138,7 +138,7 @@ class RegisterViewController: UIViewController {
     @objc func nameTextFieldDidChange(_ textField: UITextField) {
         if let text = textField.text {
             if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
-                if (Validator().name(input: text) == false) {
+                if (Validator.name(input: text) == false) {
                     floatingLabelTextField.errorMessage = "Name must not contain any special characters"
                 } else {
                     floatingLabelTextField.errorMessage = ""
@@ -150,7 +150,7 @@ class RegisterViewController: UIViewController {
     @objc func addressTextFieldDidChange(_ textField: UITextField) {
         if let text = textField.text {
             if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
-                if (Validator().address(input: text) == false) {
+                if (Validator.address(input: text) == false) {
                     floatingLabelTextField.errorMessage = "Invalid address"
                 } else {
                     floatingLabelTextField.errorMessage = ""

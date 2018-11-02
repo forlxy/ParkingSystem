@@ -122,7 +122,7 @@ class AuthViewController: UIViewController {
     @objc func emailTextFieldDidChange(_ textField: UITextField) {
         if let text = textField.text {
             if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
-                if (Validator().email(input: text) == false) {
+                if (Validator.email(input: text) == false) {
                     floatingLabelTextField.errorMessage = "Invalid email"
                 } else {
                     floatingLabelTextField.errorMessage = ""
