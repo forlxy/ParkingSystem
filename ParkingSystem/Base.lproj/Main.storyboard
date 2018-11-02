@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GuC-f4-EGO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GuC-f4-EGO">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -742,38 +741,38 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="Pjy-qK-Q5L">
-                                <rect key="frame" x="20" y="172" width="30" height="30"/>
+                                <rect key="frame" x="20" y="172" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="Tqw-cD-lcP"/>
-                                    <constraint firstAttribute="height" constant="30" id="kbU-0a-o5s"/>
+                                    <constraint firstAttribute="height" constant="40" id="Sld-Cb-8uO"/>
+                                    <constraint firstAttribute="width" constant="40" id="qp2-vk-vQt"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="YDz-dC-dBk">
-                                <rect key="frame" x="20" y="210" width="30" height="30"/>
+                                <rect key="frame" x="20" y="220" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="CqM-4w-hhA"/>
+                                    <constraint firstAttribute="height" constant="40" id="alN-io-Qe2"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="LVQ-ec-kKY">
-                                <rect key="frame" x="20" y="248" width="30" height="30"/>
+                                <rect key="frame" x="20" y="268" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="EmX-xa-vsF"/>
+                                    <constraint firstAttribute="height" constant="40" id="ZJK-HD-5VZ"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="hzha0044@student.monash.edu" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Seo-qX-CHY">
-                                <rect key="frame" x="58" y="210" width="336" height="30"/>
+                                <rect key="frame" x="68" y="220" width="326" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="ypan0018@student.monash.edu" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j8D-Ao-Eji">
-                                <rect key="frame" x="58" y="248" width="336" height="30"/>
+                                <rect key="frame" x="68" y="268" width="326" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="0451711203" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ger-dn-bVd">
-                                <rect key="frame" x="58" y="172" width="336" height="30"/>
+                                <rect key="frame" x="68" y="172" width="331" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -781,30 +780,30 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="j8D-Ao-Eji" firstAttribute="top" secondItem="Seo-qX-CHY" secondAttribute="bottom" constant="8" symbolic="YES" id="3DD-xj-Jxy"/>
-                            <constraint firstItem="ger-dn-bVd" firstAttribute="trailing" secondItem="Seo-qX-CHY" secondAttribute="trailing" id="Ch2-9W-Mob"/>
-                            <constraint firstItem="kcJ-jK-I7g" firstAttribute="bottom" secondItem="LVQ-ec-kKY" secondAttribute="bottom" constant="409" id="Czo-m3-Z48"/>
-                            <constraint firstItem="Seo-qX-CHY" firstAttribute="leading" secondItem="j8D-Ao-Eji" secondAttribute="leading" id="E0b-GM-avK"/>
-                            <constraint firstItem="j8D-Ao-Eji" firstAttribute="leading" secondItem="LVQ-ec-kKY" secondAttribute="trailing" constant="8" symbolic="YES" id="J3O-Hj-lQE"/>
-                            <constraint firstItem="Seo-qX-CHY" firstAttribute="trailing" secondItem="j8D-Ao-Eji" secondAttribute="trailing" id="QhJ-qs-taf"/>
-                            <constraint firstItem="ger-dn-bVd" firstAttribute="leading" secondItem="Seo-qX-CHY" secondAttribute="leading" id="UKi-sQ-03w"/>
-                            <constraint firstItem="LVQ-ec-kKY" firstAttribute="top" secondItem="YDz-dC-dBk" secondAttribute="bottom" constant="8" symbolic="YES" id="UOA-5U-qLj"/>
-                            <constraint firstItem="TDF-2h-k4p" firstAttribute="trailing" secondItem="ger-dn-bVd" secondAttribute="trailing" id="XK4-uz-7ug"/>
-                            <constraint firstItem="TDF-2h-k4p" firstAttribute="leading" secondItem="sLc-PX-0Sx" secondAttribute="leadingMargin" id="XoL-Z6-52K"/>
-                            <constraint firstItem="TDF-2h-k4p" firstAttribute="leading" secondItem="Pjy-qK-Q5L" secondAttribute="leading" id="aLM-Ib-rOK"/>
-                            <constraint firstItem="LVQ-ec-kKY" firstAttribute="bottom" secondItem="j8D-Ao-Eji" secondAttribute="bottom" id="aQf-Cg-4kN"/>
-                            <constraint firstItem="Seo-qX-CHY" firstAttribute="leading" secondItem="YDz-dC-dBk" secondAttribute="trailing" constant="8" symbolic="YES" id="cne-0J-uZK"/>
-                            <constraint firstItem="LVQ-ec-kKY" firstAttribute="top" secondItem="j8D-Ao-Eji" secondAttribute="top" id="dG5-4s-s3Q"/>
-                            <constraint firstItem="Pjy-qK-Q5L" firstAttribute="leading" secondItem="YDz-dC-dBk" secondAttribute="leading" id="dVt-1n-WSg"/>
-                            <constraint firstItem="YDz-dC-dBk" firstAttribute="top" secondItem="Seo-qX-CHY" secondAttribute="top" id="e16-ke-VG4"/>
-                            <constraint firstItem="Pjy-qK-Q5L" firstAttribute="top" secondItem="ger-dn-bVd" secondAttribute="top" id="gIj-sh-kve"/>
-                            <constraint firstItem="TDF-2h-k4p" firstAttribute="top" secondItem="kcJ-jK-I7g" secondAttribute="top" id="hmO-P9-fkt"/>
-                            <constraint firstItem="ger-dn-bVd" firstAttribute="leading" secondItem="Pjy-qK-Q5L" secondAttribute="trailing" constant="8" symbolic="YES" id="npZ-5j-jVR"/>
-                            <constraint firstItem="TDF-2h-k4p" firstAttribute="trailing" secondItem="sLc-PX-0Sx" secondAttribute="trailingMargin" id="oXc-g1-Dqx"/>
-                            <constraint firstItem="Pjy-qK-Q5L" firstAttribute="top" secondItem="TDF-2h-k4p" secondAttribute="bottom" constant="8" symbolic="YES" id="pPS-dc-Q6D"/>
-                            <constraint firstItem="Seo-qX-CHY" firstAttribute="top" secondItem="ger-dn-bVd" secondAttribute="bottom" constant="8" symbolic="YES" id="sEH-wE-Skg"/>
-                            <constraint firstItem="YDz-dC-dBk" firstAttribute="top" secondItem="Pjy-qK-Q5L" secondAttribute="bottom" constant="8" symbolic="YES" id="vz6-Vk-BZT"/>
-                            <constraint firstItem="YDz-dC-dBk" firstAttribute="leading" secondItem="LVQ-ec-kKY" secondAttribute="leading" id="z6T-GB-gkt"/>
+                            <constraint firstItem="Seo-qX-CHY" firstAttribute="trailing" secondItem="j8D-Ao-Eji" secondAttribute="trailing" id="053-p8-4mc"/>
+                            <constraint firstItem="LVQ-ec-kKY" firstAttribute="top" secondItem="YDz-dC-dBk" secondAttribute="bottom" constant="8" symbolic="YES" id="2Iz-Uk-0j8"/>
+                            <constraint firstItem="TDF-2h-k4p" firstAttribute="trailing" secondItem="sLc-PX-0Sx" secondAttribute="trailingMargin" id="47m-zS-QZD"/>
+                            <constraint firstItem="TDF-2h-k4p" firstAttribute="leading" secondItem="Pjy-qK-Q5L" secondAttribute="leading" id="5mA-G1-TSV"/>
+                            <constraint firstItem="kcJ-jK-I7g" firstAttribute="bottom" secondItem="LVQ-ec-kKY" secondAttribute="bottom" constant="379" id="9xZ-5E-SKr"/>
+                            <constraint firstItem="TDF-2h-k4p" firstAttribute="top" secondItem="kcJ-jK-I7g" secondAttribute="top" id="9z9-sA-JBE"/>
+                            <constraint firstItem="TDF-2h-k4p" firstAttribute="leading" secondItem="sLc-PX-0Sx" secondAttribute="leadingMargin" id="D8y-Xt-YFO"/>
+                            <constraint firstItem="Pjy-qK-Q5L" firstAttribute="top" secondItem="TDF-2h-k4p" secondAttribute="bottom" constant="8" symbolic="YES" id="GZf-kg-Ibe"/>
+                            <constraint firstItem="YDz-dC-dBk" firstAttribute="leading" secondItem="LVQ-ec-kKY" secondAttribute="leading" id="HTA-xh-RWm"/>
+                            <constraint firstItem="kcJ-jK-I7g" firstAttribute="trailing" secondItem="ger-dn-bVd" secondAttribute="trailing" constant="15" id="Hjs-dn-BIo"/>
+                            <constraint firstItem="j8D-Ao-Eji" firstAttribute="top" secondItem="Seo-qX-CHY" secondAttribute="bottom" constant="8" symbolic="YES" id="U5A-Er-gjn"/>
+                            <constraint firstItem="Pjy-qK-Q5L" firstAttribute="top" secondItem="ger-dn-bVd" secondAttribute="top" id="WTZ-QT-gAS"/>
+                            <constraint firstItem="Seo-qX-CHY" firstAttribute="leading" secondItem="j8D-Ao-Eji" secondAttribute="leading" id="XvG-Pz-YSf"/>
+                            <constraint firstItem="LVQ-ec-kKY" firstAttribute="bottom" secondItem="j8D-Ao-Eji" secondAttribute="bottom" id="fQQ-Tx-vKg"/>
+                            <constraint firstItem="Seo-qX-CHY" firstAttribute="top" secondItem="ger-dn-bVd" secondAttribute="bottom" constant="8" symbolic="YES" id="lhr-W5-kbF"/>
+                            <constraint firstItem="TDF-2h-k4p" firstAttribute="trailing" secondItem="Seo-qX-CHY" secondAttribute="trailing" id="mTK-YG-f6l"/>
+                            <constraint firstItem="j8D-Ao-Eji" firstAttribute="leading" secondItem="LVQ-ec-kKY" secondAttribute="trailing" constant="8" symbolic="YES" id="nd7-4X-mkf"/>
+                            <constraint firstItem="ger-dn-bVd" firstAttribute="leading" secondItem="Pjy-qK-Q5L" secondAttribute="trailing" constant="8" symbolic="YES" id="oWB-Ie-dEj"/>
+                            <constraint firstItem="YDz-dC-dBk" firstAttribute="top" secondItem="Pjy-qK-Q5L" secondAttribute="bottom" constant="8" symbolic="YES" id="q0t-pa-kcC"/>
+                            <constraint firstItem="Pjy-qK-Q5L" firstAttribute="leading" secondItem="YDz-dC-dBk" secondAttribute="leading" id="rxD-6m-Vnu"/>
+                            <constraint firstItem="Seo-qX-CHY" firstAttribute="leading" secondItem="YDz-dC-dBk" secondAttribute="trailing" constant="8" symbolic="YES" id="rxH-na-lUY"/>
+                            <constraint firstItem="ger-dn-bVd" firstAttribute="leading" secondItem="Seo-qX-CHY" secondAttribute="leading" id="sTT-iO-dfd"/>
+                            <constraint firstItem="YDz-dC-dBk" firstAttribute="top" secondItem="Seo-qX-CHY" secondAttribute="top" id="xh4-so-4eV"/>
+                            <constraint firstItem="LVQ-ec-kKY" firstAttribute="top" secondItem="j8D-Ao-Eji" secondAttribute="top" id="zwM-AX-Rwe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kcJ-jK-I7g"/>
                     </view>
