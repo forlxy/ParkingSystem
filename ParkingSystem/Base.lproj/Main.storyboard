@@ -735,48 +735,77 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Parking System Version 1.0  Producers: Hanfang Zhao, Yilei Pan" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TDF-2h-k4p">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Parking System Version 1.0  Producers: Hanfang Zhao, Yilei Pan" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TDF-2h-k4p">
                                 <rect key="frame" x="20" y="64" width="374" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="Pjy-qK-Q5L">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="Pjy-qK-Q5L">
                                 <rect key="frame" x="20" y="172" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="Tqw-cD-lcP"/>
+                                    <constraint firstAttribute="height" constant="30" id="kbU-0a-o5s"/>
+                                </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="YDz-dC-dBk">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="YDz-dC-dBk">
                                 <rect key="frame" x="20" y="210" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="CqM-4w-hhA"/>
+                                </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="LVQ-ec-kKY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="LVQ-ec-kKY">
                                 <rect key="frame" x="20" y="248" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="EmX-xa-vsF"/>
+                                </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="0451711203" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ger-dn-bVd">
-                                <rect key="frame" x="58" y="172" width="336" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="hzha0044@student.monash.edu" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Seo-qX-CHY">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="hzha0044@student.monash.edu" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Seo-qX-CHY">
                                 <rect key="frame" x="58" y="210" width="336" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="ypan0018@student.monash.edu" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j8D-Ao-Eji">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="ypan0018@student.monash.edu" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j8D-Ao-Eji">
                                 <rect key="frame" x="58" y="248" width="336" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="0451711203" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ger-dn-bVd">
+                                <rect key="frame" x="58" y="172" width="336" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="j8D-Ao-Eji" firstAttribute="top" secondItem="Seo-qX-CHY" secondAttribute="bottom" constant="8" symbolic="YES" id="3DD-xj-Jxy"/>
+                            <constraint firstItem="ger-dn-bVd" firstAttribute="trailing" secondItem="Seo-qX-CHY" secondAttribute="trailing" id="Ch2-9W-Mob"/>
+                            <constraint firstItem="kcJ-jK-I7g" firstAttribute="bottom" secondItem="LVQ-ec-kKY" secondAttribute="bottom" constant="409" id="Czo-m3-Z48"/>
+                            <constraint firstItem="Seo-qX-CHY" firstAttribute="leading" secondItem="j8D-Ao-Eji" secondAttribute="leading" id="E0b-GM-avK"/>
+                            <constraint firstItem="j8D-Ao-Eji" firstAttribute="leading" secondItem="LVQ-ec-kKY" secondAttribute="trailing" constant="8" symbolic="YES" id="J3O-Hj-lQE"/>
+                            <constraint firstItem="Seo-qX-CHY" firstAttribute="trailing" secondItem="j8D-Ao-Eji" secondAttribute="trailing" id="QhJ-qs-taf"/>
+                            <constraint firstItem="ger-dn-bVd" firstAttribute="leading" secondItem="Seo-qX-CHY" secondAttribute="leading" id="UKi-sQ-03w"/>
+                            <constraint firstItem="LVQ-ec-kKY" firstAttribute="top" secondItem="YDz-dC-dBk" secondAttribute="bottom" constant="8" symbolic="YES" id="UOA-5U-qLj"/>
+                            <constraint firstItem="TDF-2h-k4p" firstAttribute="trailing" secondItem="ger-dn-bVd" secondAttribute="trailing" id="XK4-uz-7ug"/>
+                            <constraint firstItem="TDF-2h-k4p" firstAttribute="leading" secondItem="sLc-PX-0Sx" secondAttribute="leadingMargin" id="XoL-Z6-52K"/>
+                            <constraint firstItem="TDF-2h-k4p" firstAttribute="leading" secondItem="Pjy-qK-Q5L" secondAttribute="leading" id="aLM-Ib-rOK"/>
+                            <constraint firstItem="LVQ-ec-kKY" firstAttribute="bottom" secondItem="j8D-Ao-Eji" secondAttribute="bottom" id="aQf-Cg-4kN"/>
+                            <constraint firstItem="Seo-qX-CHY" firstAttribute="leading" secondItem="YDz-dC-dBk" secondAttribute="trailing" constant="8" symbolic="YES" id="cne-0J-uZK"/>
+                            <constraint firstItem="LVQ-ec-kKY" firstAttribute="top" secondItem="j8D-Ao-Eji" secondAttribute="top" id="dG5-4s-s3Q"/>
+                            <constraint firstItem="Pjy-qK-Q5L" firstAttribute="leading" secondItem="YDz-dC-dBk" secondAttribute="leading" id="dVt-1n-WSg"/>
+                            <constraint firstItem="YDz-dC-dBk" firstAttribute="top" secondItem="Seo-qX-CHY" secondAttribute="top" id="e16-ke-VG4"/>
+                            <constraint firstItem="Pjy-qK-Q5L" firstAttribute="top" secondItem="ger-dn-bVd" secondAttribute="top" id="gIj-sh-kve"/>
+                            <constraint firstItem="TDF-2h-k4p" firstAttribute="top" secondItem="kcJ-jK-I7g" secondAttribute="top" id="hmO-P9-fkt"/>
+                            <constraint firstItem="ger-dn-bVd" firstAttribute="leading" secondItem="Pjy-qK-Q5L" secondAttribute="trailing" constant="8" symbolic="YES" id="npZ-5j-jVR"/>
+                            <constraint firstItem="TDF-2h-k4p" firstAttribute="trailing" secondItem="sLc-PX-0Sx" secondAttribute="trailingMargin" id="oXc-g1-Dqx"/>
+                            <constraint firstItem="Pjy-qK-Q5L" firstAttribute="top" secondItem="TDF-2h-k4p" secondAttribute="bottom" constant="8" symbolic="YES" id="pPS-dc-Q6D"/>
+                            <constraint firstItem="Seo-qX-CHY" firstAttribute="top" secondItem="ger-dn-bVd" secondAttribute="bottom" constant="8" symbolic="YES" id="sEH-wE-Skg"/>
+                            <constraint firstItem="YDz-dC-dBk" firstAttribute="top" secondItem="Pjy-qK-Q5L" secondAttribute="bottom" constant="8" symbolic="YES" id="vz6-Vk-BZT"/>
+                            <constraint firstItem="YDz-dC-dBk" firstAttribute="leading" secondItem="LVQ-ec-kKY" secondAttribute="leading" id="z6T-GB-gkt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="kcJ-jK-I7g"/>
                     </view>
                     <navigationItem key="navigationItem" id="zma-8z-y5J"/>

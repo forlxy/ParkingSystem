@@ -8,27 +8,27 @@
 
 import UIKit
 import Firebase
-import LFLoginController
-
-//3. Implement the LFLoginControllerDelegate
-extension AuthViewController: LFLoginControllerDelegate {
-    
-    
-    
-    func forgotPasswordTapped(email: String) {
-        print("forgot password")
-    }
-    
-    
-    func loginDidFinish(email: String, password: String, type: LFLoginController.SendType) {
-        
-        print(email)
-        print(password)
-        print(type)
-    }
-    
-
-}
+//import LFLoginController
+//
+////3. Implement the LFLoginControllerDelegate
+//extension AuthViewController: LFLoginControllerDelegate {
+//
+//
+//
+//    func forgotPasswordTapped(email: String) {
+//        print("forgot password")
+//    }
+//
+//
+//    func loginDidFinish(email: String, password: String, type: LFLoginController.SendType) {
+//
+//        print(email)
+//        print(password)
+//        print(type)
+//    }
+//
+//
+//}
 
 class AuthViewController: UIViewController {
 
@@ -54,18 +54,18 @@ class AuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //1. Create a LFLoginController instance
-        let loginController = LFLoginController()
-        loginController.delegate = self
-        
-        // Customizations
-        loginController.logo = #imageLiteral(resourceName: "car")
-        loginController.isSignupSupported = true
-        
-        loginController.backgroundColor = UIColor(red: 224 / 255, green: 68 / 255, blue: 98 / 255, alpha: 1)
-        loginController.loginButtonColor = UIColor.cyan
-        
+//
+//        //1. Create a LFLoginController instance
+//        let loginController = LFLoginController()
+//        loginController.delegate = self
+//        
+//        // Customizations
+//        loginController.logo = #imageLiteral(resourceName: "car")
+//        loginController.isSignupSupported = true
+//        
+//        loginController.backgroundColor = UIColor(red: 224 / 255, green: 68 / 255, blue: 98 / 255, alpha: 1)
+//        loginController.loginButtonColor = UIColor.cyan
+//        
         //2. Present the timePicker
 //        self.navigationController?.pushViewController(loginController, animated: true)
         
