@@ -64,7 +64,7 @@ class AuthViewController: UIViewController {
     
     func jumpToHome() {
         let tabBarController = storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! TabBarController
-        tabBarController.selectedViewController = tabBarController.viewControllers?[2]
+        tabBarController.selectedViewController = tabBarController.viewControllers?[0]
         present(tabBarController, animated: true, completion: nil)
     }
     
