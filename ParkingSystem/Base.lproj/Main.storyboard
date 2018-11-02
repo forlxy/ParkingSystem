@@ -70,10 +70,8 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="oSd-Cv-g7l"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <state key="normal" title="Login">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                </state>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <state key="normal" title="Login"/>
                                                 <connections>
                                                     <action selector="loginAccount:" destination="vl8-n7-FDn" eventType="touchUpInside" id="aZe-Pg-4VR"/>
                                                 </connections>
@@ -83,10 +81,8 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Iqi-vU-LZY"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <state key="normal" title="Register">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                </state>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <state key="normal" title="Register"/>
                                                 <connections>
                                                     <action selector="registerAccount:" destination="vl8-n7-FDn" eventType="touchUpInside" id="Auk-eR-vRQ"/>
                                                 </connections>

@@ -10,7 +10,8 @@ import UIKit
 import Firebase
 import SkyFloatingLabelTextField
 
-//// https://www.youtube.com/watch?v=3gUNg3Jhjwo
+//The following is for gradient background
+// https://www.youtube.com/watch?v=3gUNg3Jhjwo
 //extension UIView {
 //    func setGradientBackground(colorOne: UIColor, colorTwo: UIColor) {
 //        let gradientLayer = CAGradientLayer()
@@ -42,6 +43,7 @@ class RegisterViewController: UIViewController {
         nameTextField.addTarget(self, action: #selector(nameTextFieldDidChange(_:)), for: .editingChanged)
         addressTextField.addTarget(self, action: #selector(addressTextFieldDidChange(_:)), for: .editingChanged)
         
+        //The following is for gradient background
 //        view.setGradientBackground(colorOne: UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0), colorTwo: UIColor(red: 200.0/255.0, green: 200.0/255.0, blue: 200.0/255.0, alpha: 1.0))
         
     }
@@ -113,7 +115,7 @@ class RegisterViewController: UIViewController {
         if let text = textField.text {
             if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
                 if (Validator().password(input: text) == false) {
-                    floatingLabelTextField.errorMessage = "Password must contain:2 upper, 2 lower, 2 number, 1 special char, and of length 8-20"
+                    floatingLabelTextField.errorMessage = "Invalid password"
                 } else {
                     floatingLabelTextField.errorMessage = ""
                 }
