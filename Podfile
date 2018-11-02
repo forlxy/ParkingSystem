@@ -12,5 +12,8 @@ target 'ParkingSystem' do
   pod 'Firebase/Storage'
   pod 'LFLoginController'
   pod 'AwesomeTextFieldSwift'
+  pod 'SkyFloatingLabelTextField', '~> 3.0'
+  pod 'Cards'
+  pod 'LGButton'
 
 end
