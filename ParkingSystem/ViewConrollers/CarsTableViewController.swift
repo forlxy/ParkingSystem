@@ -29,7 +29,7 @@ class CarsTableViewController: UITableViewController, UIGestureRecognizerDelegat
         alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
             let plate = textField?.text
-            if(plate != ""){
+            if(plate != "" && Validator().plate(input: plate!)){
                 let newCar = Car(isInside: false, plate: plate!, time: Date())
                 for car in self.cars{
                     if car.plate == newCar.plate{
@@ -303,7 +303,7 @@ class CarsTableViewController: UITableViewController, UIGestureRecognizerDelegat
         alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
             let plate = textField?.text
-            if(plate != ""){
+            if(plate != "" && Validator().plate(input: plate!)){
                 for car in self.cars{
                     if car.plate == plate{
                         let alert = UIAlertController(title: "Car already exist!", message: "Please input a new car plate", preferredStyle: .alert )

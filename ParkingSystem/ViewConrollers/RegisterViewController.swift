@@ -9,18 +9,18 @@
 import UIKit
 import Firebase
 
-// https://www.youtube.com/watch?v=3gUNg3Jhjwo
-extension UIView {
-    func setGradientBackground(colorOne: UIColor, colorTwo: UIColor) {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = bounds
-        gradientLayer.colors = [colorOne.cgColor, colorTwo.cgColor]
-        gradientLayer.locations = [0.0, 1.0]
-        gradientLayer.startPoint = CGPoint(x: 0.5, y: 1.0)
-        gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.0)
-        layer.insertSublayer(gradientLayer, at: 0)
-    }
-}
+//// https://www.youtube.com/watch?v=3gUNg3Jhjwo
+//extension UIView {
+//    func setGradientBackground(colorOne: UIColor, colorTwo: UIColor) {
+//        let gradientLayer = CAGradientLayer()
+//        gradientLayer.frame = bounds
+//        gradientLayer.colors = [colorOne.cgColor, colorTwo.cgColor]
+//        gradientLayer.locations = [0.0, 1.0]
+//        gradientLayer.startPoint = CGPoint(x: 0.5, y: 1.0)
+//        gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.0)
+//        layer.insertSublayer(gradientLayer, at: 0)
+//    }
+//}
 
 
 class RegisterViewController: UIViewController {
@@ -35,7 +35,7 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.setGradientBackground(colorOne: UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0), colorTwo: UIColor(red: 200.0/255.0, green: 200.0/255.0, blue: 200.0/255.0, alpha: 1.0))
+//        view.setGradientBackground(colorOne: UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0), colorTwo: UIColor(red: 200.0/255.0, green: 200.0/255.0, blue: 200.0/255.0, alpha: 1.0))
         
     }
     
