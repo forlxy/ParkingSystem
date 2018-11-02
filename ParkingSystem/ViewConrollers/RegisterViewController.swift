@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 
+// https://www.youtube.com/watch?v=3gUNg3Jhjwo
 extension UIView {
     func setGradientBackground(colorOne: UIColor, colorTwo: UIColor) {
         let gradientLayer = CAGradientLayer()
