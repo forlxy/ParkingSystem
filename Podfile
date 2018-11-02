@@ -10,5 +10,7 @@ target 'ParkingSystem' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'LFLoginController'
+  pod 'AwesomeTextFieldSwift'
 
 end

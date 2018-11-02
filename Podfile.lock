@@ -1,4 +1,5 @@
 PODS:
+  - AwesomeTextFieldSwift (0.2.5)
   - Firebase/Auth (5.8.0):
     - Firebase/CoreOnly
     - FirebaseAuth (= 5.0.4)
@@ -64,6 +65,7 @@ PODS:
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.0)
   - leveldb-library (1.20)
+  - LFLoginController (0.3.1)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -71,13 +73,16 @@ PODS:
   - nanopb/encode (0.3.8)
 
 DEPENDENCIES:
+  - AwesomeTextFieldSwift
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - LFLoginController
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - AwesomeTextFieldSwift
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -90,9 +95,11 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMSessionFetcher
     - leveldb-library
+    - LFLoginController
     - nanopb
 
 SPEC CHECKSUMS:
+  AwesomeTextFieldSwift: 5dbe899fa593144bb6547748b52f916cf4f21756
   Firebase: 25812f43e7a53b11ae2f0a5f4c6d12faeb1f7cd7
   FirebaseAnalytics: df15839e9c6ca6bd14d2e8ab6b0c672e6c49097e
   FirebaseAuth: 504b198ceb3472dca5c65bb95544ea44cfc9439e
@@ -105,8 +112,9 @@ SPEC CHECKSUMS:
   GoogleUtilities: 6f681e27050c5e130325e89fa0316dfca826f954
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  LFLoginController: ded1e7e1f625d6ae9762faf491d74519ce017f46
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
 
-PODFILE CHECKSUM: 48c50938adfcfb3eb3a1989a4545f2c9a50f954b
+PODFILE CHECKSUM: abe61fbfc5d8e321dbf8089261fb20194bb3f2f7
 
 COCOAPODS: 1.5.3

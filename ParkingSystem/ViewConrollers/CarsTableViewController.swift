@@ -31,6 +31,14 @@ class CarsTableViewController: UITableViewController, UIGestureRecognizerDelegat
             let plate = textField?.text
             if(plate != ""){
                 let newCar = Car(isInside: false, plate: plate!, time: Date())
+                for car in self.cars{
+                    if car.plate == newCar.plate{
+                        let alert = UIAlertController(title: "Car already exist!", message: "Please input a new car plate", preferredStyle: .alert )
+                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                        return
+                    }
+                }
                 self.cars.append(newCar)
                 self.updateCars()
             }
@@ -296,6 +304,14 @@ class CarsTableViewController: UITableViewController, UIGestureRecognizerDelegat
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
             let plate = textField?.text
             if(plate != ""){
+                for car in self.cars{
+                    if car.plate == plate{
+                        let alert = UIAlertController(title: "Car already exist!", message: "Please input a new car plate", preferredStyle: .alert )
+                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                        return
+                    }
+                }
                 self.cars[indexPath.row].plate = plate!
                 self.updateCars()
             }
