@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SkyFloatingLabelTextField
 //import LFLoginController
 //
 ////3. Implement the LFLoginControllerDelegate
@@ -32,11 +33,11 @@ import Firebase
 
 class AuthViewController: UIViewController {
 
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    var handle: AuthStateDidChangeListenerHandle?
+    @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var passwordTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
+    var handle: AuthStateDidChangeListenerHandle?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -54,6 +55,7 @@ class AuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailTextField.addTarget(self, action: #selector(emailTextFieldDidChange(_:)), for: .editingChanged)
 //
 //        //1. Create a LFLoginController instance
 //        let loginController = LFLoginController()
@@ -70,7 +72,7 @@ class AuthViewController: UIViewController {
 //        self.navigationController?.pushViewController(loginController, animated: true)
         
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bg-parking.png")!).withAlphaComponent(0.7)
+//        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bg-parking.png")!).withAlphaComponent(0.7)
         loginButton.backgroundColor = UIColor.gray.withAlphaComponent(0.8)
         loginButton.layer.cornerRadius = 5
         loginButton.layer.borderWidth = 1
@@ -82,6 +84,9 @@ class AuthViewController: UIViewController {
     }
     
     @IBAction func loginAccount(_ sender: Any) {
+        if (emailTextField.hasErrorMessage) {
+            return
+        }
         guard let email = emailTextField.text, emailTextField.text?.count != 0 else {
             displayErrorMessage("Please enter a email address")
             return
@@ -116,6 +121,18 @@ class AuthViewController: UIViewController {
     
     @IBAction func unwindToAuth(segue: UIStoryboardSegue) {}
 
+    @objc func emailTextFieldDidChange(_ textField: UITextField) {
+        if let text = textField.text {
+            if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
+                if (Validator().email(input: text) == false) {
+                    floatingLabelTextField.errorMessage = "Invalid email"
+                } else {
+                    floatingLabelTextField.errorMessage = ""
+                }
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
