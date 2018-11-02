@@ -27,27 +27,30 @@ class AvailableSpotViewController: UIViewController {
     let ref = Database.database().reference().child("park")
     
     let ref2 = Database.database().reference().child("users")
-    var currentIndex = -1
+//    var currentIndex = -1
     let userId = Auth.auth().currentUser?.uid
     var currentPlate = ""
+    var plates = [String]()
     
     override func viewDidAppear(_ animated: Bool) {
         
         
         ref2.child(userId!).observe(.value, with: { snapshot in
+            self.plates.removeAll()
             let plates = snapshot.childSnapshot(forPath: "plates")
             let data = snapshot.value as! [String: AnyObject]
-            self.currentIndex = data["current"] == nil ? -1 : data["current"] as! Int
-            if(self.currentIndex == -1){
-                self.currentPlate = ""
-            }
+//            self.currentIndex = data["current"] == nil ? -1 : data["current"] as! Int
+//            if(self.currentIndex == -1){
+//                self.currentPlate = ""
+//            }
             for child in plates.children {
                 if let snapshot = child as? DataSnapshot{
                     let plate = snapshot.value as! String
-                    let index = snapshot.key
-                    if(Int(index) == self.currentIndex){
-                        self.currentPlate = plate
-                    }
+                    self.plates.append(plate)
+//                    let index = snapshot.key
+//                    if(Int(index) == self.currentIndex){
+//                        self.currentPlate = plate
+//                    }
                 }
                 
             }
@@ -89,11 +92,13 @@ class AvailableSpotViewController: UIViewController {
                 case 1:
                     self.spot1.removeGestureRecognizer(orderGesture)
                     self.spot1.setImageColor(color: UIColor.red)
-                    if(self.currentPlate == data["plate"] as! String){
+                    self.spot1.isUserInteractionEnabled = false
+                    if(self.plates.contains(data["plate"] as! String)){
                         self.spot1.addGestureRecognizer(cancelGesture)
                         self.spot1.setImageColor(color: UIColor.orange)
+                        self.spot1.isUserInteractionEnabled = true
                     }
-                    self.spot1.isUserInteractionEnabled = true
+                
                 case 2:
                     self.spot1.setImageColor(color: UIColor.red)
                     self.spot1.isUserInteractionEnabled = false
@@ -121,11 +126,12 @@ class AvailableSpotViewController: UIViewController {
             case 1:
                 self.spot2.removeGestureRecognizer(orderGesture)
                 self.spot2.setImageColor(color: UIColor.red)
-                if(self.currentPlate == data["plate"] as! String){
+                self.spot2.isUserInteractionEnabled = false
+                if(self.plates.contains(data["plate"] as! String)){
                     self.spot2.addGestureRecognizer(cancelGesture)
                     self.spot2.setImageColor(color: UIColor.orange)
+                    self.spot2.isUserInteractionEnabled = true
                 }
-                self.spot2.isUserInteractionEnabled = true
             case 2:
                 self.spot2.setImageColor(color: UIColor.red)
                 self.spot2.isUserInteractionEnabled = false
@@ -152,11 +158,12 @@ class AvailableSpotViewController: UIViewController {
             case 1:
                 self.spot3.removeGestureRecognizer(orderGesture)
                 self.spot3.setImageColor(color: UIColor.red)
-                if(self.currentPlate == data["plate"] as! String){
+                self.spot3.isUserInteractionEnabled = false
+                if(self.plates.contains(data["plate"] as! String)){
                     self.spot3.addGestureRecognizer(cancelGesture)
                     self.spot3.setImageColor(color: UIColor.orange)
+                    self.spot3.isUserInteractionEnabled = true
                 }
-                self.spot3.isUserInteractionEnabled = true
             case 2:
                 self.spot3.setImageColor(color: UIColor.red)
                 self.spot3.isUserInteractionEnabled = false
@@ -183,11 +190,12 @@ class AvailableSpotViewController: UIViewController {
             case 1:
                 self.spot4.removeGestureRecognizer(orderGesture)
                 self.spot4.setImageColor(color: UIColor.red)
-                if(self.currentPlate == data["plate"] as! String){
+                self.spot4.isUserInteractionEnabled = false
+                if(self.plates.contains(data["plate"] as! String)){
                     self.spot4.addGestureRecognizer(cancelGesture)
                     self.spot4.setImageColor(color: UIColor.orange)
+                    self.spot4.isUserInteractionEnabled = true
                 }
-                self.spot4.isUserInteractionEnabled = true
             case 2:
                 self.spot4.setImageColor(color: UIColor.red)
                 self.spot4.isUserInteractionEnabled = false
@@ -206,11 +214,20 @@ class AvailableSpotViewController: UIViewController {
         // if the tapped view is a UIImageView then set it to imageview
         if (gesture.view as? UIImageView) != nil {
             let identifier = gesture.view?.restorationIdentifier
-            let alert = UIAlertController(title: "Do you want to order this spot?", message: "Your reservation will be saved in 30 minutes.", preferredStyle: .actionSheet)
+            let alert = UIAlertController(title: "Do you want to order this spot?", message: "Please select the plate.", preferredStyle: .actionSheet)
             
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-                self.orderSpot(identifier: identifier!)
-            }))
+            let closure = { (action: UIAlertAction!) -> Void in
+                let index = alert.actions.index(of: action)
+                
+                if index != nil {
+                    self.orderSpot(identifier: identifier!, index: index!)
+                }
+            }
+            
+            for element in plates {
+                alert.addAction(UIAlertAction(title: element, style: .default, handler: closure))
+            }
+
             alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
             
             self.present(alert, animated: true)
@@ -234,8 +251,8 @@ class AvailableSpotViewController: UIViewController {
         }
     }
     
-    func orderSpot(identifier: String) {
-        ref.child("\(identifier)/plate").setValue(self.currentPlate)
+    func orderSpot(identifier: String, index: Int) {
+        ref.child("\(identifier)/plate").setValue(self.plates[index])
         ref.child("\(identifier)/state").setValue(1)
     }
     
