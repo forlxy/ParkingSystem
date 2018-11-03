@@ -306,7 +306,6 @@ class CarsTableViewController: UITableViewController, UIGestureRecognizerDelegat
             textField.text = self.cars[indexPath.row].plate
         }
         
-        // 3. Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
             let plate = textField?.text
@@ -333,7 +332,6 @@ class CarsTableViewController: UITableViewController, UIGestureRecognizerDelegat
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         
-        // 4. Present the alert.
         self.present(alert, animated: true, completion: nil)
     }
 
