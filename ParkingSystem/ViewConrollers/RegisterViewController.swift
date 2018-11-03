@@ -115,7 +115,7 @@ class RegisterViewController: UIViewController {
         if let text = textField.text {
             if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
                 if (Validator.password(input: text) == false) {
-                    floatingLabelTextField.errorMessage = "Invalid password"
+                    floatingLabelTextField.errorMessage = "Upper, lower case letter and number, length: 8-20"
                 } else {
                     floatingLabelTextField.errorMessage = ""
                 }

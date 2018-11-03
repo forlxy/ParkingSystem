@@ -220,7 +220,10 @@ class AvailableSpotViewController: UIViewController {
                 let index = alert.actions.index(of: action)
                 
                 if index != nil {
-                    self.orderSpot(identifier: identifier!, index: index!)
+                    
+                    self.checkOrdered(identifier: identifier!, index: index!)
+                    
+//
                 }
             }
             
@@ -261,6 +264,30 @@ class AvailableSpotViewController: UIViewController {
         ref.child("\(identifier)/state").setValue(0)
     }
     
+    func checkOrdered(identifier: String, index: Int){
+        ref.queryOrdered(byChild: "state").queryEqual(toValue: 1).observeSingleEvent(of: .value, with: { snapshot in
+            print(snapshot.childrenCount)
+            
+            for child in snapshot.children {
+                if let snap = child as? DataSnapshot{
+                    let data = snap.value as! [String: AnyObject]
+                    print(data)
+                    if(data["plate"] as! String == self.plates[index]){
+                        let alert = UIAlertController(title: "This car has already ordered a plot", message: "Please choose another car", preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                        
+                        self.present(alert, animated: true)
+                        return
+//                        print(data["plate"])
+                    }
+                }
+            }
+            self.orderSpot(identifier: identifier, index: index)
+            
+        })
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GuC-f4-EGO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GuC-f4-EGO">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +14,7 @@
         <!--Welcome-->
         <scene sceneID="gDR-MC-hgL">
             <objects>
-                <viewController id="vl8-n7-FDn" customClass="AuthViewController" customModule="ParkingSystem" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Welcome" id="vl8-n7-FDn" customClass="AuthViewController" customModule="ParkingSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hwA-FZ-Tm8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,6 +22,9 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="P35-Pj-EVQ">
                                 <rect key="frame" x="20" y="104" width="374" height="310"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="dgl-B1-Ii7">
+                                        <rect key="frame" x="67" y="91" width="240" height="128"/>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parking System" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpx-qF-4SU">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                         <constraints>
@@ -62,31 +66,57 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Password"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NqH-e6-Rot">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="NqH-e6-Rot">
                                         <rect key="frame" x="0.0" y="210" width="374" height="100"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5S-V2-3IE">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cfy-ix-fUU" customClass="LGButton" customModule="LGButton">
+                                                <rect key="frame" x="67" y="-14" width="240" height="128"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="oSd-Cv-g7l"/>
+                                                    <constraint firstAttribute="height" constant="50" id="MaA-gM-nlk"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <state key="normal" title="Login"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                                        <color key="value" red="0.1473242911" green="0.61987308890000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showTouchFeedback" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleString" value="Login"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="fullyRoundedCorners" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="loginAccount:" destination="vl8-n7-FDn" eventType="touchUpInside" id="aZe-Pg-4VR"/>
+                                                    <action selector="loginAccount:" destination="vl8-n7-FDn" eventType="touchUpInside" id="TNp-ba-9mk"/>
                                                 </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hx9-jI-gjF">
-                                                <rect key="frame" x="0.0" y="50" width="374" height="50"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GEc-CP-P6y" customClass="LGButton" customModule="LGButton">
+                                                <rect key="frame" x="67" y="-14" width="240" height="128"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="Iqi-vU-LZY"/>
+                                                    <constraint firstAttribute="height" constant="50" id="MNR-Iw-kYe"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <state key="normal" title="Register"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                                        <color key="value" red="0.16785879021454744" green="0.50693212107764662" blue="0.78127023963730569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showTouchFeedback" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleString" value="Register"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="fullyRoundedCorners" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="registerAccount:" destination="vl8-n7-FDn" eventType="touchUpInside" id="Auk-eR-vRQ"/>
+                                                    <action selector="registerAccount:" destination="vl8-n7-FDn" eventType="touchUpInside" id="g4h-JV-Sir"/>
                                                 </connections>
-                                            </button>
+                                            </view>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -103,9 +133,7 @@
                     <navigationItem key="navigationItem" title="Welcome" id="W0H-4q-XVw"/>
                     <connections>
                         <outlet property="emailTextField" destination="ZFv-BW-O81" id="pl6-d2-e9T"/>
-                        <outlet property="loginButton" destination="U5S-V2-3IE" id="zId-cG-FAw"/>
                         <outlet property="passwordTextField" destination="8RS-Y2-JG5" id="ZtF-64-eSk"/>
-                        <outlet property="registerButton" destination="hx9-jI-gjF" id="fCF-GQ-qdw"/>
                         <segue destination="74z-Rh-xbj" kind="show" identifier="registerSegue" id="33t-R0-l2b"/>
                     </connections>
                 </viewController>
@@ -113,16 +141,16 @@
             </objects>
             <point key="canvasLocation" x="579.71014492753625" y="300"/>
         </scene>
-        <!--Available Spot View Controller-->
+        <!--Plot-->
         <scene sceneID="TBw-Mk-OYX">
             <objects>
-                <viewController id="rbS-wo-HJN" customClass="AvailableSpotViewController" customModule="ParkingSystem" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Plot" id="rbS-wo-HJN" customClass="AvailableSpotViewController" customModule="ParkingSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CkR-X6-Kxj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="SgO-Vz-zvc">
-                                <rect key="frame" x="32" y="162" width="350" height="309"/>
+                                <rect key="frame" x="32" y="162" width="350" height="240"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="150" translatesAutoresizingMaskIntoConstraints="NO" id="aCI-Jf-Yr1">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="100"/>
@@ -130,13 +158,13 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FP3-2j-Oft">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" restorationIdentifier="plot_0" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="39P-lE-4IY">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" restorationIdentifier="plot_0" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="39P-lE-4IY" userLabel="Plot 1">
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="79.666666666666671"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="100" id="pVM-a3-vAL"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spot 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3De-9h-tX1">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spot 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3De-9h-tX1" userLabel="Plot 1">
                                                         <rect key="frame" x="0.0" y="79.666666666666657" width="100" height="20.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -147,10 +175,10 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wff-tp-Prp">
                                                 <rect key="frame" x="250" y="0.0" width="100" height="100"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" restorationIdentifier="plot_1" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="QPJ-F1-j4v">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" restorationIdentifier="plot_1" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="QPJ-F1-j4v" userLabel="Plot 2">
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="79.666666666666671"/>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spot 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xfx-Hf-1Gx">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spot 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xfx-Hf-1Gx" userLabel="Plot 2">
                                                         <rect key="frame" x="0.0" y="79.666666666666657" width="100" height="20.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -159,18 +187,21 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="Eno-gs-5UT"/>
+                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="150" translatesAutoresizingMaskIntoConstraints="NO" id="DdV-ue-daM">
-                                        <rect key="frame" x="0.0" y="140" width="350" height="169"/>
+                                        <rect key="frame" x="0.0" y="140" width="350" height="100"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" restorationIdentifier="spot3" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Sef-Ii-lw6">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="169"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" restorationIdentifier="plot_2" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="tIQ-PZ-ffF">
-                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="148.66666666666666"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" restorationIdentifier="plot_2" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="tIQ-PZ-ffF" userLabel="Plot 3">
+                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="79.666666666666671"/>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spot 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KhU-Ni-cfl">
-                                                        <rect key="frame" x="0.0" y="148.66666666666669" width="100" height="20.333333333333343"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spot 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KhU-Ni-cfl" userLabel="Plot 3">
+                                                        <rect key="frame" x="0.0" y="79.666666666666686" width="100" height="20.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -178,16 +209,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ND0-Dc-oYy">
-                                                <rect key="frame" x="250" y="0.0" width="100" height="169"/>
+                                                <rect key="frame" x="250" y="0.0" width="100" height="100"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" restorationIdentifier="plot_3" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="BaM-jq-uJU">
-                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="148.66666666666666"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" restorationIdentifier="plot_3" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="BaM-jq-uJU" userLabel="Plot 4">
+                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="79.666666666666671"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="100" id="uje-nC-YqB"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spot 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06b-3a-BCb">
-                                                        <rect key="frame" x="0.0" y="148.66666666666669" width="100" height="20.333333333333343"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spot 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06b-3a-BCb" userLabel="Plot 4">
+                                                        <rect key="frame" x="0.0" y="79.666666666666686" width="100" height="20.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -195,6 +226,9 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="vn2-hL-MwV"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -208,11 +242,10 @@
                         <constraints>
                             <constraint firstItem="SgO-Vz-zvc" firstAttribute="centerX" secondItem="CkR-X6-Kxj" secondAttribute="centerX" id="9qX-LP-mcj"/>
                             <constraint firstItem="SgO-Vz-zvc" firstAttribute="top" secondItem="XnH-rR-guH" secondAttribute="top" constant="98" id="yoR-WE-WUZ"/>
-                            <constraint firstItem="XnH-rR-guH" firstAttribute="bottom" secondItem="SgO-Vz-zvc" secondAttribute="bottom" constant="216" id="zsq-Vq-08H"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XnH-rR-guH"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Yb2-Yc-sik"/>
+                    <navigationItem key="navigationItem" title="Plots" id="Yb2-Yc-sik"/>
                     <connections>
                         <outlet property="spot1" destination="39P-lE-4IY" id="Ow9-Tx-Yac"/>
                         <outlet property="spot2" destination="QPJ-F1-j4v" id="4Pi-tJ-s1h"/>
@@ -224,10 +257,10 @@
             </objects>
             <point key="canvasLocation" x="2085.5999999999999" y="1736.5817091454273"/>
         </scene>
-        <!--Personal Info View Controller-->
+        <!--Me-->
         <scene sceneID="3fa-Hy-Q9X">
             <objects>
-                <viewController id="OkG-yH-SV2" customClass="PersonalInfoViewController" customModule="ParkingSystem" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Me" id="OkG-yH-SV2" customClass="PersonalInfoViewController" customModule="ParkingSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7wN-b2-g1F">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -329,8 +362,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FwF-4v-qJw"/>
                     </view>
-                    <navigationItem key="navigationItem" id="WYv-Ae-OaZ">
-                        <barButtonItem key="rightBarButtonItem" title="logout" id="JV9-W2-Hdo">
+                    <navigationItem key="navigationItem" title="Me" id="WYv-Ae-OaZ">
+                        <barButtonItem key="rightBarButtonItem" title="Log out" id="JV9-W2-Hdo">
                             <connections>
                                 <action selector="logout:" destination="OkG-yH-SV2" id="c2q-GR-0Oi"/>
                             </connections>
@@ -347,10 +380,10 @@
             </objects>
             <point key="canvasLocation" x="2924.6376811594205" y="1735.5978260869567"/>
         </scene>
-        <!--Edit Profile View Controller-->
+        <!--Edit-->
         <scene sceneID="wwr-eD-DEd">
             <objects>
-                <viewController id="CBD-Bb-DKP" customClass="EditProfileViewController" customModule="ParkingSystem" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Edit" id="CBD-Bb-DKP" customClass="EditProfileViewController" customModule="ParkingSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c42-QH-Toa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -488,10 +521,10 @@
             </objects>
             <point key="canvasLocation" x="2086" y="300"/>
         </scene>
-        <!--Cars Table View Controller-->
+        <!--My Cars-->
         <scene sceneID="c5m-0c-IDE">
             <objects>
-                <tableViewController storyboardIdentifier="CarsTableViewController" id="tVv-0Y-s0u" customClass="CarsTableViewController" customModule="ParkingSystem" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CarsTableViewController" title="My Cars" id="tVv-0Y-s0u" customClass="CarsTableViewController" customModule="ParkingSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="U82-ud-6G6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -527,7 +560,7 @@
                             <outlet property="delegate" destination="tVv-0Y-s0u" id="C4b-fc-mpR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Tix-cA-cJ0">
+                    <navigationItem key="navigationItem" title="My Cars" id="Tix-cA-cJ0">
                         <barButtonItem key="rightBarButtonItem" id="jff-6O-YS9">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KkK-OB-W2Y">
                                 <rect key="frame" x="302" y="7" width="92" height="30"/>
@@ -558,6 +591,9 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wX6-GZ-slS">
                                 <rect key="frame" x="20" y="104" width="374" height="400"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="H7Q-4D-C4K">
+                                        <rect key="frame" x="67" y="136" width="240" height="128"/>
+                                    </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YDv-kC-w6n" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                         <constraints>
@@ -638,16 +674,30 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Address"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DSY-yk-tiK">
-                                        <rect key="frame" x="0.0" y="350" width="374" height="50"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q2R-GW-6n6" customClass="LGButton" customModule="LGButton">
+                                        <rect key="frame" x="67" y="136" width="240" height="128"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="5bM-po-Nc3"/>
+                                            <constraint firstAttribute="height" constant="50" id="fcC-TZ-XD9"/>
                                         </constraints>
-                                        <state key="normal" title="Register"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="showTouchFeedback" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="titleString" value="Register"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="fullyRoundedCorners" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="registerAccount:" destination="74z-Rh-xbj" eventType="touchUpInside" id="ByM-Ph-bC2"/>
+                                            <action selector="registerAccount:" destination="74z-Rh-xbj" eventType="touchUpInside" id="yfO-xa-bHL"/>
                                         </connections>
-                                    </button>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -691,11 +741,11 @@
             </objects>
             <point key="canvasLocation" x="-199" y="300"/>
         </scene>
-        <!--Your Cars-->
+        <!--My Cars-->
         <scene sceneID="cKN-HN-jo5">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hph-U9-WVL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Your Cars" image="car" id="HF4-wr-Kcv"/>
+                <navigationController title="My Cars" automaticallyAdjustsScrollViewInsets="NO" id="hph-U9-WVL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Cars" image="car" id="HF4-wr-Kcv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Mat-vO-ALS">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -748,10 +798,10 @@
             </objects>
             <point key="canvasLocation" x="2927" y="1031"/>
         </scene>
-        <!--View Controller-->
+        <!--About-->
         <scene sceneID="LLw-dg-kQH">
             <objects>
-                <viewController id="FlQ-HP-0L8" sceneMemberID="viewController">
+                <viewController title="About" id="FlQ-HP-0L8" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sLc-PX-0Sx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -829,7 +879,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kcJ-jK-I7g"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zma-8z-y5J"/>
+                    <navigationItem key="navigationItem" title="About Us" id="zma-8z-y5J"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5zZ-mx-gvV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -859,6 +909,7 @@
         <image name="car" width="85" height="51"/>
         <image name="email" width="32" height="32"/>
         <image name="info" width="32" height="32"/>
+        <image name="logo" width="115" height="113"/>
         <image name="parking" width="32" height="32"/>
         <image name="phone" width="32" height="32"/>
         <image name="user" width="32" height="32"/>

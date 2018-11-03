@@ -42,6 +42,12 @@ class CarsTableViewController: UITableViewController, UIGestureRecognizerDelegat
                 self.cars.append(newCar)
                 self.updateCars()
             }
+            else {
+                let alert = UIAlertController(title: "Invalid Plate!", message: "Check your input and insert it again", preferredStyle: .alert )
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
@@ -243,8 +249,8 @@ class CarsTableViewController: UITableViewController, UIGestureRecognizerDelegat
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CarCell", for: indexPath)
 
-        cell.detailTextLabel?.text = (self.cars[currentIndex].isInside ? "Current Inside. Lasting: " : "") + self.cars[currentIndex].labelText
-        cell.detailTextLabel?.textColor = UIColor.orange
+        cell.detailTextLabel?.text = (self.cars[currentIndex].isInside ? "Parking. Lasting: " : "") + self.cars[currentIndex].labelText
+        cell.detailTextLabel?.textColor = UIColor.red
         tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
     }
     
@@ -282,11 +288,12 @@ class CarsTableViewController: UITableViewController, UIGestureRecognizerDelegat
         cell.textLabel?.text = car.plate
         
         if(currentIndex == indexPath.row && latestTime != "") {
-            cell.detailTextLabel?.text = (car.isInside ? "Current Inside. Lasting: " : "") + self.cars[currentIndex].labelText
-            cell.detailTextLabel?.textColor = UIColor.orange
+            cell.detailTextLabel?.text = (car.isInside ? "Parking. Lasting: " : "") + self.cars[currentIndex].labelText
+            cell.detailTextLabel?.textColor = UIColor.red
         }
         else {
-            cell.detailTextLabel?.text = ""
+            cell.detailTextLabel?.text = "Not inside."
+            cell.detailTextLabel?.textColor = UIColor(red:0.26, green:0.63, blue:0.28, alpha:1.0)
         }
         return cell
     }
@@ -314,6 +321,12 @@ class CarsTableViewController: UITableViewController, UIGestureRecognizerDelegat
                 }
                 self.cars[indexPath.row].plate = plate!
                 self.updateCars()
+            }
+            else {
+                let alert = UIAlertController(title: "Invalid Plate!", message: "Check your input and insert it again", preferredStyle: .alert )
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                return
             }
         }))
         

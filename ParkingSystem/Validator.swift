@@ -28,8 +28,8 @@ class Validator {
     }
     
     static func password(input: String) -> Bool {
-        // 2 upper, 2 lower, 2 number, 1 special char, length 8-20
-        let regexStr = "^(?=.*[A-Z].*[A-Z])(?=.*[a-z].*[a-z])(?=.*[0-9].*[0-9])(?=.*[!@#$&*]).{8,20}$"
+        // At least 1 upper, 1 lower, 1 number, length 8-20
+        let regexStr = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,20}$"
         do {
             let regex = try NSRegularExpression(pattern: regexStr)
             let results = regex.matches(in: input, range: NSRange(location: 0, length: input.count))
