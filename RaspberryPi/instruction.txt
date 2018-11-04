@@ -1,0 +1,2 @@
+Need to install firebase and openalpr before execution of these files
+Root directory of openalpr and these py files should in same folder. 
