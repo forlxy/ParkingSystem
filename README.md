@@ -9,7 +9,7 @@ This repository contains code for the ParkingSystem project, which contains both
 **Technical Stack:**
 
 - Client Side: **Swift**
-  - Server Side: **Firebase + Python**
+- Server Side: **Firebase + Python**
 ## Features
 
 - Use openalpr to perform the plate detection task, which is a python library. It is implemented on RPI, and is used after a picture is taken. It contributes the functionality of plate recognition from photos.
